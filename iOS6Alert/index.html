@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iOS6Alert.js demo</title>
+<link href="ios6alert.css" rel="stylesheet" />
+<link href="css/demo.css" rel="stylesheet" />
+</head>
+
+<body>
+<h1>iOS6Alert.js 演示</h1>
+<div style="height:44px;"></div>
+
+<div class="section">
+<h3>基本演示</h3>
+<button class="basicdemo">弹出对话框</button><span class="note" style="font-size:18px;">&lt;点击这些按钮可以预览效果</span>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel eros sit amet nunc molestie varius id in lacus. Praesent at tincidunt dolor. In ac odio tincidunt, ultrices arcu et, consectetur ligula."
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>无标题</h3>
+<button class="notitle">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	content : "无标题对话框实例"
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>对话框类型</h3>
+<button class="deftype">默认对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "默认对话框",
+	type : 0
+});
+</pre>
+<hr />
+<button class="yesno">确定/取消</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "点击确定或取消",
+	type : 1
+});
+</pre>
+<hr />
+<button class="delno">删除/取消</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "确定要删除这条消息吗？",
+	type : 2
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>声音</h3>
+<button class="soundd">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "带有声音的提示框\n\n此功能不支持IE8及更低版本的浏览器",
+	sound : "sounds/Complete.mp3"
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>自动关闭</h3>
+<button class="autoc">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "此对话框将在3秒后自动关闭",
+	autoClose : 3000
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>禁用键盘操作</h3>
+<button class="nokey">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "此默认插件支持的键盘操作：\n\n在默认类型的对话框下按“Esc、Y、空格、Enter”均可退出\n\n在“确定/取消”类型的对话框下按“Y、空格、Enter”相当于Yes，按“Esc、N”相当于No",
+	pressKeys : false
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>自定义按钮文字</h3>
+<button class="buttontxt1">示例1</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "自定义按钮文字实例1",
+	buttonText : {
+		Yes : "Continue"
+	}
+});
+</pre>
+<hr />
+<button class="buttontxt2">示例2</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "自定义按钮文字实例2",
+	type : 1,
+	buttonText : {
+		Yes : "All Right",
+		No : "No, Thanks"
+	}
+});
+</pre>
+<hr />
+<button class="buttontxt3">示例3</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "Are you sure to uninstall this application?",
+	type : 2,
+	buttonText : {
+		Delete : "Uninstall",
+		No : "Not now"
+	}
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>回调函数</h3>
+<button class="yesnocall">确定/取消</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "点击“确定”或“取消”后，插件将执行不同的脚本。",
+	type : 1,
+	onClickYes : function(){
+		alert("点击了“确定”");
+	},
+	onClickNo : function(){
+		alert("点击了“取消”");
+	}
+});
+</pre>
+<hr />
+<button class="delnocall">删除/取消</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "点击“删除”或“取消”后，插件将执行不同的脚本。\n\n“删除”按钮相当于“确定”。",
+	type : 2,
+	onClickYes : function(){
+		alert("点击了“删除”");
+	},
+	onClickNo : function(){
+		alert("点击了“取消”");
+	}
+});
+</pre>
+<button class="onclose">关闭事件</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "只要对话框被关闭，事件就会被执行。",
+	type : 1,
+	onClose : function(){
+		alert("关闭事件测试");
+	}
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>连续事件处理实例</h3>
+<button class="threedemo">弹出5个对话框</button>
+<pre>
+for(i = 1; i <= 5; i ++){
+	$("body").ios6alert({
+		title : "jq22.com",
+		content : "第" + i + "条消息"
+	});
+}
+</pre>
+</div>
+
+<div class="section">
+<h3>通过附加Class功能来自定义样式</h3>
+<button class="mystyle1">示例1</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "对话框自定义样式演示1",
+	addClass : "myalertstyle1"
+});
+</pre>
+<a class="togglea" onclick="$('.stoggle1').slideToggle();">点击此处展开/隐藏CSS部分</a>
+<pre class="dtoggle stoggle1">
+.ios6alert.myalertstyle1{
+	color:#0FF;
+}
+.ios6alert.myalertstyle1 .side_top .alt_titlebar{
+	font-size:20px;
+	color:#0F6;
+}
+.ios6alert.myalertstyle1 .alt_content{
+	font-size:18px;
+}
+.ios6alert.myalertstyle1 .alt_button .alt_button_bg{
+	color:#06F;
+	font-size:20px;
+}
+</pre>
+<hr />
+<button class="mystyle2">示例2</button>
+<pre>
+$("body").ios6alert({
+	title : "jq22.com",
+	content : "对话框自定义样式演示2",
+	type : 1,
+	addClass : "myalertstyle2"
+});
+</pre>
+<a class="togglea" onclick="$('.stoggle2').slideToggle();">点击此处展开/隐藏CSS部分</a>
+<pre class="dtoggle stoggle2">
+.ios6alert.myalertstyle2{
+	color:#0F0;
+}
+.ios6alert.myalertstyle2 .side_top{
+	background-image:url(../images/myStyle_Background_side.png);
+}
+.ios6alert.myalertstyle2 .side_bottom{
+	background-image:url(../images/myStyle_Background_side.png);
+}
+.ios6alert.myalertstyle2 .alt_bg{
+	background-image:url(../images/myStyle_Background.png);
+}
+.ios6alert.myalertstyle2 .alt_button.alt_button_def .alt_button_bg{
+	color:#F00;
+}
+.ios6alert.myalertstyle2 .alt_button.alt_button_def:active .alt_button_bg{
+	background-image:url(../images/myStyle_ButtonDefPress_bg.png) !important;
+}
+.ios6alert.myalertstyle2 .alt_button.alt_button_def:active .alt_button_side_left, .ios6alert.myalertstyle2 .alt_button.alt_button_def:active .alt_button_side_right{
+	background-image:url(../images/myStyle_ButtonDefPress_side.png);
+}
+</pre>
+</div>
+
+<div class="section">
+<h3>HTML</h3>
+<button class="htmldemo">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "还可以在对话框上使用&lt;i&gt;HTML&lt;/i&gt;",
+	content : "HTML对话框演示&lt;input value='文本框'&gt;&lt;select&gt;&lt;option&gt;下拉选择框&lt;/option&gt;&lt;/select&gt;\n&lt;input type='button' value='按钮'&gt;\n&lt;font color='#FF0000'&gt;颜色&lt;/font&gt;",
+	html : true
+});
+</pre>
+<div class="note">如果不声明HTML所有字符将直接显示，例如：</div>
+<a onclick="$('.nohtmlsection').slideToggle()" class="togglea">点击这里展开/隐藏未显示的部分</a>
+<div class="dtoggle nohtmlsection">
+<button class="nohtmldemo">弹出对话框</button>
+<pre>
+$("body").ios6alert({
+	title : "还可以在对话框上使用&lt;i&gt;HTML&lt;/i&gt;",
+	content : "HTML对话框演示&lt;input value='文本框'&gt;&lt;select&gt;&lt;option&gt;下拉选择框&lt;/option&gt;&lt;/select&gt;\n&lt;input type='button' value='按钮'&gt;\n&lt;font color='#FF0000'&gt;颜色&lt;/font&gt;"
+});
+</pre>
+</div>
+<hr />
+<button class="icondemo">图标实例</button>
+<pre>
+$("body").ios6alert({
+	title : "&lt;img class=\"alt_icon\" src=\"images/htmldemo_icon.png\"&gt;jq22.com",
+	content : "此示例运用HTML在标题上增加一个图标，图标可以自定义CSS样式。",
+	html : true
+});
+</pre>
+</div>
+
+<div class="section">
+<h3>选项说明</h3>
+<div style="padding:0px 5px 5px 5px;">
+<table width="100%" border="0" cellspacing="0">
+  <tr  style="background:#DDD;color:#333;">
+    <td width="100" style="border-top-left-radius:5px;"><strong>选项名称</strong></td>
+    <td width="140"><strong>默认值</strong></td>
+    <td style="border-top-right-radius:5px;"><strong>描述</strong></td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td>&nbsp;</td>
+    <td>对话框的标题。</td>
+  </tr>
+  <tr>
+    <td>content</td>
+    <td>&nbsp;</td>
+    <td>对话框的内容。（消息）</td>
+  </tr>
+  <tr>
+    <td>addClass</td>
+    <td>&nbsp;</td>
+    <td>附加到对话框元素上的Class，可用于自定义样式等，多个Class请用空格分隔。</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>0</td>
+    <td>对话框种类（0-默认； 1-确定/取消； 2-删除/取消）</td>
+  </tr>
+  <tr>
+    <td>html</td>
+    <td>false</td>
+    <td>是否把标题和内容作为HTML添加到对话框元素上。</td>
+  </tr>
+  <tr>
+    <td>sound</td>
+    <td>&nbsp;</td>
+    <td>对话框弹出时播放的声音。（指定音频文件的路径，不支持IE8及更低版本的浏览器）</td>
+  </tr>
+  <tr>
+    <td>autoClose</td>
+    <td>0</td>
+    <td>自动关闭的超时时间。（单位：毫秒）</td>
+  </tr>
+  <tr>
+    <td>pressKeys</td>
+    <td>true</td>
+    <td>是否接受键盘操作。</td>
+  </tr>
+  <tr>
+    <td>buttonText</td>
+    <td>{<br />
+      Yes : &quot;OK&quot;,<br />
+      No : &quot;Cancel&quot;,<br />
+      Delete : &quot;Delete&quot;<br />
+    }</td>
+    <td>显示在按钮上的文字。<br />
+      Yes：确定按钮<br />
+      No：取消按钮<br />
+      Delete：删除按钮</td>
+  </tr>
+  <tr>
+    <td>onClickYes</td>
+    <td>&nbsp;</td>
+    <td>回调函数，点击确定（或删除）按钮时执行的脚本。</td>
+  </tr>
+  <tr>
+    <td>onClickNo</td>
+    <td>&nbsp;</td>
+    <td>回调函数，点击取消按钮时执行的脚本。</td>
+  </tr>
+  <tr>
+    <td style="border-bottom-left-radius:5px;">onClose</td>
+    <td>&nbsp;</td>
+    <td style="border-bottom-right-radius:5px;">回调函数，对话框关闭后执行的脚本。</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h3>用法</h3>
+<ol>
+<li>首先，在页面上引入jQuery，然后引入<span class="pre_s">ios6alert.js</span>和<span class="pre_s">ios6alert.css</span>。（或压缩版<span class="pre_s">ios6alert.min.js</span>）</li>
+<div class="note">其中，ios6alert.js是插件主要部分的js，ios6alert.css中定义的是对话框的默认样式，可以根据需要进行编辑。</div>
+<div class="note">对话框的HTML结构是通过js动态添加到页面上的，所以不需要在页面上额外准备内容。</div>
+<a class="togglea note" onclick="$('.stoggle3').slideToggle();">点击这里展开/隐藏默认所需图片文件列表</a>
+<div class="dtoggle stoggle3" style="margin-left:30px;">
+	<div class="note">images/iOS6AlertBackground_bg.png  对话框背景图像</div>
+	<div class="note">images/iOS6AlertBackground_side.png  对话框上下边缘图像</div>
+	<div class="note">images/iOS6AlertButton_bg.png  确定按钮背景图像</div>
+	<div class="note">images/iOS6AlertButton_side.png  所有类型按钮左右边缘图像</div>
+	<div class="note">images/iOS6AlertButtonDef_bg.png  取消按钮背景图像</div>
+	<div class="note">images/iOS6AlertButtonDefPress_bg.png  取消按钮按下时的背景图像</div>
+	<div class="note">images/iOS6AlertButtonDel_bg.png  删除按钮背景图像</div>
+	<div class="note">images/iOS6AlertButtonDelPress_bg.png  删除按钮按下时的背景图像</div>
+	<div class="note">images/iOS6AlertButtonPress_bg.png  确定按钮按下时的背景图像</div>
+	<div class="note" style="color:#090;">images/backgroundsize.min.htc  针对IE7和IE8的CSS background-size属性支持（非必需）</div>
+	<div class="note"><br />以上图片的位置如有变动，请到ios6alert.css中修改相应路径。</div>
+</div>
+<li>只需要运行<span class="pre_s">$("body").ios6alert(选项);</span>即可，选项说明和示例在上文已经列出。</li>
+</ol>
+</div>
+
+<div class="★">兼容性：IE7+（最佳效果需IE10+） Chrome Firefox Opera…</div>
+<a class="☆" onclick="$('html, body').animate({'scroll-top':0});">回顶部</a>
+
+<script src="js/jquery-1.11.0.min.js" language="javascript"></script>
+<script src="ios6alert.min.js" language="javascript"></script>
+<script src="js/example.js" language="javascript"></script>
+</body>
+</html>
