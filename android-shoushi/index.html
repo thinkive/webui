@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery安卓手机屏幕图案解锁代码</title>
+
+<!--必要样式-->
+<link href="css/patternLock.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/patternLock.js"></script>
+
+<style type="text/css">
+#warp{width:600px; margin:auto;}
+#warp div{margin-bottom:50px;}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	var lock = new PatternLock("#patternContainer");
+	
+	var lock1 = new PatternLock("#patternContainer1",{lineOnMove:false});
+	
+	var lock2 = new PatternLock("#patternContainer2",{patternVisible:false});
+	
+	var lock3 = new PatternLock("#patternContainer3",{radius:30,margin:20});
+	
+	var lock4 = new PatternLock("#patternContainer4",{matrix:[4,4]});
+	
+	var lock5 = new PatternLock("#patternContainer5",
+		{
+			mapper: function(idx){
+				return (idx%9) + 1;
+		 }
+	});
+	
+})
+</script>
+
+</head>
+
+<body>
+
+<div id="warp">
+	<h1>图案锁实例</h1>
+    <p>1、基础初始化</p>
+    <div id="patternContainer"></div>
+    <p>2、两点间到达目标点才画线</p>
+    <div id="patternContainer1"></div>
+    <p>3、当图案连线完成后才显示连线</p>
+    <div id="patternContainer2"></div>
+    <p>4、改变两个点之间的距</p>
+    <div id="patternContainer3"></div>
+    <p>5、自定义距阵</p>
+    <div id="patternContainer4"></div>
+    <p>6、使用映射</p>
+  <div id="patternContainer5"></div>
+    <p>7、作为验证码使用，这个在服务端需用到  patternCaptha,有兴趣的朋友可以研究下，这里就不多说了。</p>
+    <div id="patternContainer6"></div>
+</div>
+</body>
+</html>
