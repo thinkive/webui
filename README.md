@@ -18,5 +18,3 @@
 #常用PC插件(浏览器访问)
 1. **Bootstrap3计算器**http://www.wecloud.net.cn/lightApp/Bootstrap3-jsq/index.html
 
-#PHP
-1. **web文件管理系统(KODExplorer)**http://demo.kalcaddle.com/index.php
