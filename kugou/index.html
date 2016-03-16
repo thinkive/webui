@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="title" content="仿酷狗html5手机音乐播放器">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+
+<title>仿酷狗手机音乐播放器</title>
+<link rel="stylesheet" href="css/index.css" />
+<script type="text/javascript" src="js/jqmobi.js"></script>	
+</head>
+<body>
+	<section id="menu">
+		<ul class="menu_tagList">
+			<li id="newSong" class="menu_hover">新歌</li>
+			<li id="songCharts">排行</li>
+			<li id="singer">歌手</li>
+			<li id="radioStation">电台</li>
+		</ul>
+		
+	</section>
+	<section id="content">		
+	</section>	
+	<section id="playwrap">
+		<div id="playContent">
+			<div >
+				<audio  id="myMusic"></audio>
+			</div>
+			<div onClick="myControl.selectTime(event)" id="progressWrap">
+				<div id="progress"></div>
+			</div>
+			<div class="img">
+				<img id="singerHead" src="data/ywaq.jpg">
+			</div>
+			<div class="info">
+				<div class="songname clearfix">
+					<label id="musicTitle" for="musicTitle">最深的蓝出品</label>
+					<label style="display: none;" id="songname" for="songname" style="color: rgb(204, 0, 0);">此手机不支持html5播放，扔了吧</label>
+					<label id="timeshow" for="time"><span id="currentTime">00:00</span>/<span id="totleTime">00:00</span></label>
+				</div>
+				<div class="audioControl">
+					<a id="prevButton" class="last" onClick="myControl.prev()" href="javascript:;"></a>
+					<a id="playButton" class="play" onClick="myControl.mainControl()" href="javascript:;"></a>
+					<a id="nextButton" class="next" onClick="myControl.next()" href="javascript:;"></a>
+					<a id="modeButton" class="mode-default" onClick="myControl.selectMode()" href="javascript:;"></a>
+					<a class="border"></a>
+					<a id="playDetail" class="showDetail" href="javascript:;"></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div style="display:none;" id="oWindow">dfsdfsdfdsf</div>
+	<script type="text/javascript" src="js/all.js"></script>
+</body>
+</html>
