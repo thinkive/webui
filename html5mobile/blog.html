@@ -1,0 +1,135 @@
+<div class="pages">
+  <div data-page="projects" class="page no-toolbar no-navbar">
+    <div class="page-content">
+    
+     <div class="navbarpages">
+       <div class="navbar_home_link"><a href="index.html"><img src="images/icons/white/home.png" alt="" title="" /></a></div>
+       <div class="navbar_page_center">Blog</div>
+       <div class="menu_open_icon_white"><a href="#" class="open-panel"><img src="images/menu_open.png" alt="" title="" /></a></div>
+     </div>
+     <div id="pages_maincontent">
+      
+      <h2 class="page_subtitle">Latest news</h2>
+      
+            <div class="list-block">
+              <ul class="posts">
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo8.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Design is not just what it looks like and feels like.</a></h2>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo2.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Fashion fades, only style remains the same.</a></h2>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo1.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Good design is making something intelligible and memorable.</a></h2>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo4.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Design is not just what it looks like and feels like.</a></h2>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo6.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Good design is making something intelligible and memorable.</a></h2>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+                <li class="swipeout">
+                  <div class="swipeout-content item-content">
+                    <div class="post_entry">
+                        <div class="post_thumb"><img src="images/photos/photo5.jpg" alt="" title="" /></div>
+                        <div class="post_details">
+                        <h2><a href="blog-single.html">Design is not just what it looks like and feels like.</a></h2>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                        <span class="post_date">24.02.2015</span>
+                        <span class="post_author">by <a href="#">admin</a></span>
+                        <span class="post_comments"><a href="#">0</a></span>
+                        </div>
+                        <div class="post_swipe"><img src="images/swipe_more.png" alt="" title="" /></div>
+                    </div>
+                  </div>
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="action1 open-popup" data-popup=".popup-social"><img src="images/icons/white/heart.png" alt="" title="" /></a>
+                  </div>
+                </li>
+              </ul>
+              
+            <div id="loadMore">Load more posts</div> 
+            <div id="showLess">No more posts</div> 
+            </div>
+      
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

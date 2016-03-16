@@ -1,0 +1,3516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Mobiscroll</title>
+
+    <!-- jQuery Include -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Bootstrap Include -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link href="css/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        /*****************************************************************/
+        /* Demo Page styling, you can ignore this in your implementation */
+        body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+        input, select { width: 100%; padding: .625em; margin: 0 0 .625em 0; border: 1px solid #aaa; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+        .header { padding: .625em; background: #5185a8;}
+        .header h1 { margin: 0; padding: 0; color: #fff; text-align: center; font-size: 1.25em; font-weight: bold; text-shadow: 1px 1px 1px #000; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        #main, .demo-wrapper { padding: 1em; }
+        button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.8em 2.6em;
+            margin: 20px 10px 0 0;
+            outline: 0;
+            border: 0;
+            overflow: visible;
+            cursor: pointer;
+            color: #fff;
+            background: #5185a8;
+            font-family: Arial, sans-serif, verdana;
+            font-size: 14px;
+            font-weight: 100;
+            -webkit-transition: background 0.3s ease-out;
+            -moz-transition: background 0.3s ease-out;
+            -o-transition: background 0.3s ease-out;
+            transition: background 0.3s ease-out;
+        }
+        
+        button:hover {
+            background: #34566d;
+        }
+
+        input {
+            width: 100%;
+            margin: 0 0 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            background: #fff;
+            font-family: Arial, sans-serif,verdana;
+            text-shadow: none;
+            color: #000;
+            font-size: 15px;
+            -webkit-appearance: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .demo-iframe { 
+            padding: 10px 10px 10px 10px; 
+            text-shadow: none; 
+        }
+        /* Demo page styling END */
+        /*************************/
+
+        /* Basic usage demo styling */
+        .demo-iframe.demo-stars { padding: 0; }
+        .demo-stars .md-products { list-style: none; margin: 0; padding: 0; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -ms-touch-action: none; }
+        .demo-stars .md-products li { position: relative; list-style: none; margin: 0; padding: 0; background: #f0f0f0; border-bottom: 1px solid #b1b1b1; border-top: 1px solid #fff; }
+        .demo-stars .md-products li h3 { margin: 5px 0; font-weight: normal; }
+        .demo-stars .md-products li p { margin: 5px 0; color: #717171; }
+        .demo-stars .md-products li .md-product { height: 50px; padding: 5px 65px 5px 60px; color: #333; text-align: left; text-decoration: none; cursor: pointer; }
+        .demo-stars .md-products li .md-active { background: #ddd; }
+        .demo-stars .md-products li .md-rate { position: absolute; right: 0; top: 0; width: 60px; height: 60px; text-align: right; }
+        .demo-stars .md-products li .md-rating { padding-right: 10px; font-size: 17px; line-height: 60px; }
+        .demo-stars .md-products img { position: absolute; left: 0; top: 0; width: 60px; height: 60px; border: 0; }
+        
+        @media (max-width: 960px) {
+        .demo-cont-c .demo-iframe.demo-stars { padding: 0; }
+        .demo-cont-c .demo-phone-c .demo-phone { margin: 0 -20px 40px; }
+        }
+
+        /* Image Only demo styling */
+        .dw-ul .dw-li .mbsc-img-w {text-align: center;}
+
+        /* Basic usage demo styling */
+        .md-color {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 40px;
+            color: #000;
+            border: 1px solid #000;
+            background: #ff0000;
+            margin: 5px 0;
+            white-space: nowrap;
+        }
+        .demo-display-inline .md-color {
+            display: block;
+            width: auto;
+            height: auto;
+            text-indent: 0;
+            margin: 0;
+            border: 0;
+            background: none !important;
+        }
+        .demo-display-inline .md-color .dw-inline {
+            text-align: left;
+        }
+
+        /* Two inputs demo styling */
+        .demo-display-inline .demo-twoinputs input,
+        .demo-display-inline .demo-twoinputs label,
+        .demo-display-inline .demo-twoinputs br { 
+            display: none;
+        }
+
+        /* Create, remove, update demo styling */
+        .demo-comp-listview .mbsc-lv-fixed-header-ctx { text-shadow: none; }
+        .demo-comp-listview .demo-iframe { padding: 0; }
+        .demo-comp-listview .demo-note { margin: 10px; }
+        .md-demo-note { cursor: pointer; }
+        .md-wo-list { line-height: 30px; text-shadow: none; }
+        .md-wo-list li { line-height: normal; }
+        .md-wo-status { font-size: 10px; -webkit-backface-visibility: hidden; }
+        .md-wo-empty { padding: 10px; }
+
+        /* Sort handle demo styling */
+        .demo-comp-listview .mbsc-lv-fixed-header-ctx { text-shadow: none; }
+        .demo-comp-listview .demo-iframe { padding: 0; }
+        .demo-comp-listview .demo-note { margin: 10px; }
+        .demo-sorthandle ul { font-size: 16px; }
+
+        /* Action menu demo styling */
+        .demo-comp-listview .mbsc-lv-fixed-header-ctx { text-shadow: none; }
+        .demo-comp-listview .demo-iframe { padding: 0; }
+        .demo-comp-listview .demo-note { margin: 10px; }
+        .demo-actionmenu ul { 
+            font-size: 18px; 
+        }
+        .demo-notification { 
+            position: absolute; 
+            width: 100%; 
+            z-index: 100001; 
+            left: 0; 
+            bottom: 20px; 
+            text-align: center; 
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: opacity 200ms;
+            -moz-transition: opacity 200ms;
+            transition: opacity 200ms;
+        }
+        .demo-notification-fixed { 
+            position: fixed; 
+        }
+        .demo-notification-i { 
+            display: inline-block; 
+            background: #000; 
+            color: #fff; 
+            line-height: 20px; 
+            text-shadow: none; 
+            box-shadow: 0 0 3px rgba(0,0,0,.5); 
+            border-radius: 3px; 
+            padding: 5px;
+        }
+        .demo-notification-v { 
+            opacity: 1;
+        }
+
+        /* Custom Icons demo styling */
+        /*.dw-rating .dw-li .mbsc-rating-icon { color: rgb(230,19,0); }*/
+
+        /* Tab menu demo styling */
+        .demo-comp-menustrip #demombscr { position: static; }
+        .demo-comp-menustrip .demo-iframe { padding: 0; min-height: 300px; }
+        .demo-comp-menustrip .demo-phone-np .demo-phone { margin: 0 -20px -20px -20px; }
+        .md-tab-h {
+            display: none;
+        }
+        .md-tab-sel {
+            display: block;
+        }
+        .md-app-ic {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            margin-top: -12px;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .md-app-detail {
+            display: block;
+            overflow: hidden;
+        }
+        .md-app-size {
+            font-size: 10px;
+            display: block;
+            opacity: .6;
+            float: left;
+        }
+        .md-app-date {
+            font-size: 10px;
+            display: block;
+            opacity: .6;
+            float: right;
+        }
+        .md-apps-ul li.mbsc-lv-item {
+            padding-left: 50px;
+        }
+        
+        .demo-display-top .md-apps-ul { padding-top: 47px; }
+        .demo-display-top .mbsc-lv-android .md-apps-ul { padding-top: 34px; }
+        .demo-display-top .mbsc-lv-android-holo .md-apps-ul { padding-top: 45px;}
+        .demo-display-top .mbsc-lv-bootstrap .md-apps-ul { padding-top: 36px; }
+        .demo-display-top .mbsc-lv-ios .md-apps-ul { padding-top: 42px; }
+        .demo-display-top .mbsc-lv-ios-classic .md-apps-ul { padding-top: 38px; }
+        .demo-display-top .mbsc-lv-jqm .md-apps-ul { padding-top: 33px; }
+        .demo-display-top .mbsc-lv-sense-ui .md-apps-ul { padding-top: 39px; }
+        .demo-display-top .mbsc-lv-sense .md-apps-ul { padding-top: 39px; }
+        .demo-display-top .mbsc-lv-wp .md-apps-ul { padding-top: 75px; }
+        
+        .demo-display-bottom .demo-iframe.demo-tabs { padding-bottom: 75px; }
+
+        /* Dialog demo styling */
+        .md-text-center {text-align: center;}
+        .md-dialog {width: 260px; margin: 0 auto;}
+
+        /* Alert message demo styling */
+        .md-body {max-width: 280px; margin: 0 auto;}
+
+        /* Progress demo styling */
+        .demo-comp-forms .md-demo .mbsc-progress-cont  {
+            padding: 1em;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        .demo-comp-forms .md-upload.mbsc-progress,
+        .demo-comp-forms .md-demo.mbsc-progress {
+             overflow: hidden;   
+        }
+        
+        .demo-comp-forms .md-demo .mbsc-progress-step-label {
+            overflow: visible;
+        }
+        
+        .demo-comp-forms .mbsc-wp .mbsc-progress {
+            height: 2.25em;   
+        }
+        
+        .demo-comp-forms .md-upload .mbsc-progress-cont {
+            padding-right: 1em;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+    </style>
+
+    <script>
+        // -------------------------------------------------------------------
+        // Demo page code START, you can ignore this in your implementation
+        $(function(){
+            var noDisplay = { listview: true, forms: true, menustrip: 'partial' },
+                noMode = ['listview', 'menustrip', 'forms', 'numpad', 'widget'];
+                
+            $('#demo,#theme,#display,#lang,#mode').change(reInitialize);
+            reInitialize();
+
+            function reInitialize(){
+                var demo = $('#demo').val(),
+                    component = demo.split(/(?=[A-Z])/)[0];
+                    
+                // reset options
+                resetOptions(component);
+
+                // hide all demos
+                $('.demo-wrapper').hide();
+
+                // show current demo
+                var demoContainer = $('.demo-wrapper-'+demo);
+                demoContainer.show();
+
+                // reinitialize demo
+                var initFunction = demo+'Init';
+                window[initFunction]();
+                demoContainer.trigger('mbsc-enhance');
+            }
+            function resetOptions(component) {
+                // reset display
+                $('#display').parent().show();
+                $('#display option').show();
+                var displayValue = $('#display').val();
+                
+                if (noDisplay[component]==='partial') {
+                    if (displayValue == 'modal' || displayValue == 'bubble') {
+                        $('#display').val('inline');
+                    }
+                    $('#display option[value="modal"]').hide();
+                    $('#display option[value="bubble"]').hide();
+                } else if (noDisplay[component] === true) {
+                    $('#display').parent().hide();
+                }
+                
+                // reset mode
+                if ($.inArray(component, noMode) > -1){
+                    $('#mode').parent().hide();
+                } else {
+                    $('#mode').parent().show();
+                }
+            }
+        });
+        // Demo page code END
+        // -------------------------------------------------------------------
+
+        /* Basic usage date demo script */
+        function datetimeDateInit() {
+            $(function () {
+            
+                // Mobiscroll Date & Time initialization
+                $('#datetimeDate-demo').mobiscroll().date({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/datetime#!opt-mode
+                });
+            
+                $('#datetimeDate-show').click(function(){
+                    $('#datetimeDate-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#datetimeDate-clear').click(function () {
+                    $('#datetimeDate-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Datetime with invalids demo script */
+        function datetimeInvalidInit() {
+            $(function () {
+            
+                var now = new Date();
+                // Mobiscroll Date & Time initialization
+                $('#datetimeInvalid-demo').mobiscroll().datetime({
+                    theme: $('#theme').val(),                                             // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),                                           // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),                                         // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                                               // More info about mode: http://docs.mobiscroll.com/2-17-1/datetime#!opt-mode
+                    minDate: new Date(now.getFullYear(), now.getMonth(), now.getDate()),  // More info about minDate: http://docs.mobiscroll.com/2-17-1/datetime#!opt-minDate
+                    invalid: [ 'w0', 'w6', '5/1', '12/24', '12/25' ]                      // More info about invalid: http://docs.mobiscroll.com/2-17-1/datetime#!opt-invalid
+                });
+
+                $('#datetimeInvalid-show').click(function(){
+                    $('#datetimeInvalid-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#datetimeInvalid-clear').click(function () {
+                    $('#datetimeInvalid-demo').mobiscroll('clear');
+                    return false;
+                });
+
+            });
+        }
+
+        /* Basic usage time demo script */
+        function datetimeTimeInit() {
+            $(function () {
+            
+                // Mobiscroll Date & Time initialization
+                $('#datetimeTime-demo').mobiscroll().time({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/datetime#!opt-mode
+                    buttons: [],                   // More info about buttons: http://docs.mobiscroll.com/2-17-1/datetime#!opt-buttons
+                    headerText: false              // More info about headerText: http://docs.mobiscroll.com/2-17-1/datetime#!opt-headerText
+                });
+            
+                $('#datetimeTime-show').click(function(){
+                    $('#datetimeTime-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#datetimeTime-clear').click(function () {
+                    $('#datetimeTime-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Basic usage demo script */
+        function selectBasicInit() {
+            $(function () {
+            
+                // Mobiscroll Select initialization
+                $('#selectBasic-demo').mobiscroll().select({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/select#!opt-mode
+                    minWidth: 200                  // More info about minWidth: http://docs.mobiscroll.com/2-17-1/select#!opt-minWidth
+                });
+               
+                $('#selectBasic-show').click(function () {
+                    $('#selectBasic-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#selectBasic-clear').click(function () {
+                    $('#selectBasic-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Group options demo script */
+        function selectGroupselectInit() {
+            $(function () {
+            
+                // Mobiscroll Select initialization
+                $('#selectGroupselect-demo').mobiscroll().select({
+            	theme: $('#theme').val(),             // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/select#!opt-mode
+                    label: 'City',                 // More info about label: http://docs.mobiscroll.com/2-17-1/select#!opt-label
+                    group: true,                   // More info about group: http://docs.mobiscroll.com/2-17-1/select#!opt-group
+                    groupLabel: 'Country',         // More info about groupLabel: http://docs.mobiscroll.com/2-17-1/select#!opt-groupLabel
+                    fixedWidth: [100, 170]         // More info about fixedWidth: http://docs.mobiscroll.com/2-17-1/select#!opt-fixedWidth		
+                });
+                
+                $('#selectGroupselect-show').click(function () {
+                    $('#selectGroupselect-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#selectGroupselect-clear').click(function () {
+                    $('#selectGroupselect-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Basic usage demo script */
+        function ratingStarsInit() {
+            $(function () {
+            
+                // Mobiscroll Rating initialization
+                $('.md-product').mobiscroll().rating({
+                    theme: $('#theme').val(),       // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),     // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),   // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),         // More info about mode: http://docs.mobiscroll.com/2-17-1/rating#!opt-mode
+                    label: 'Rate Item',             // More info about label: http://docs.mobiscroll.com/2-17-1/rating#!opt-label
+                    onSelect: function (v, inst) {  // More info about onSelect: http://docs.mobiscroll.com/2-17-1/rating#!event-onSelect
+                        $(this).closest('li').find('.md-rating').text(v + ' of 5');
+                    }					
+                });
+            
+            });
+        }
+
+        /* Grades demo script */
+        function ratingGradesInit() {
+            $(function () {
+            
+                // Mobiscroll Rating initialization
+                $('#ratingGrades-demo').mobiscroll().rating({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/rating#!opt-mode
+                    style: 'grade',                // More info about style: http://docs.mobiscroll.com/2-17-1/rating#!opt-style
+                    label: 'Rating'                // More info about label: http://docs.mobiscroll.com/2-17-1/rating#!opt-label
+                });
+            
+                $('#ratingGrades-show').click(function () {
+                    $('#ratingGrades-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#ratingGrades-clear').click(function () {
+                    $('#ratingGrades-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Distance demo script */
+        function distanceDistanceInit() {
+            $(function () {
+            
+                // Mobiscroll Distance initialization
+                $('#distanceDistance-demo').mobiscroll().distance({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/distance#!opt-mode
+                });
+                
+                $('#distanceDistance-show').click(function(){
+                    $('#distanceDistance-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#distanceDistance-clear').click(function () {
+                    $('#distanceDistance-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Speed demo script */
+        function speedSpeedInit() {
+            $(function () {
+            
+                // Mobiscroll Speed initialization
+                $('#speedSpeed-demo').mobiscroll().speed({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/speed#!opt-mode
+                });
+                
+                $('#speedSpeed-show').click(function(){
+                    $('#speedSpeed-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#speedSpeed-clear').click(function () {
+                    $('#speedSpeed-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Temperature demo script */
+        function temperatureTemperatureInit() {
+            $(function () {
+            
+                // Mobiscroll Temperature initialization
+                $('#temperatureTemperature-demo').mobiscroll().temperature({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/temperature#!opt-mode
+                });
+                
+                $('#temperatureTemperature-show').click(function(){
+                    $('#temperatureTemperature-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#temperatureTemperature-clear').click(function () {
+                    $('#temperatureTemperature-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Mass demo script */
+        function massMassInit() {
+            $(function () {
+            
+                // Mobiscroll Mass initialization
+                $('#massMass-demo').mobiscroll().mass({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/mass#!opt-mode
+                });
+                
+                $('#massMass-show').click(function(){
+                    $('#massMass-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#massMass-clear').click(function () {
+                    $('#massMass-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Force demo script */
+        function forceForceInit() {
+            $(function () {
+            
+                $('#forceForce-demo').mobiscroll().force ({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/force#!opt-mode
+                });
+                
+                $('#forceForce-show').click(function(){
+                    $('#forceForce-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#forceForce-clear').click(function () {
+                    $('#forceForce-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Basic usage demo script */
+        function listTreelistInit() {
+            $(function () {
+            
+                // Mobiscroll Treelist initialization
+                $('#listTreelist-demo').mobiscroll().treelist({
+                    theme: $('#theme').val(),                 // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),               // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),             // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                   // More info about mode: http://docs.mobiscroll.com/2-17-1/list#!opt-mode
+                    fixedWidth: [90,160,170],                 // More info about fixedWidth: http://docs.mobiscroll.com/2-17-1/list#!opt-fixedWidth
+                    placeholder: 'Please Select ...',         // More info about placeholder: http://docs.mobiscroll.com/2-17-1/list#!opt-placeholder
+                    labels: ['Region', 'Supervisor', 'Tech']  // More info about labels: http://docs.mobiscroll.com/2-17-1/list#!opt-labels
+                });
+            
+                $('#listTreelist-show').click(function(){
+                    $('#listTreelist-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#listTreelist-clear').click(function () {
+                    $('#listTreelist-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Image and Text demo script */
+        function imageTextInit() {
+            $(function () {
+            
+                // Mobiscroll Image initialization
+                $('#imageText-demo').mobiscroll().image({
+                    theme: $('#theme').val(),          // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),        // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),      // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),            // More info about mode: http://docs.mobiscroll.com/2-17-1/image#!opt-mode
+                    placeholder: 'Please Select ...',  // More info about placeholder: http://docs.mobiscroll.com/2-17-1/image#!opt-placeholder
+                    labels: ['Make'],                  // More info about labels: http://docs.mobiscroll.com/2-17-1/image#!opt-labels
+                    enhance: true                      // More info about enhance: http://docs.mobiscroll.com/2-17-1/image#!opt-enhance
+                });
+            
+                $('#imageText-show').click(function(){
+                    $('#imageText-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#imageText-clear').click(function () {
+                    $('#imageText-demo' + '_dummy').val('');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Image Only demo script */
+        function imageBasicInit() {
+            $(function () {
+            
+                // Mobiscroll Image initialization
+                $('#imageBasic-demo').mobiscroll().image({
+                    theme: $('#theme').val(),           // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),         // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),       // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),             // More info about mode: http://docs.mobiscroll.com/2-17-1/image#!opt-mode
+                    labels: ['Select Favorite Fruit'],  // More info about labels: http://docs.mobiscroll.com/2-17-1/image#!opt-labels
+                    placeholder: 'Please Select ...',   // More info about placeholder: http://docs.mobiscroll.com/2-17-1/image#!opt-placeholder
+                    fixedWidth: 200,                    // More info about fixedWidth: http://docs.mobiscroll.com/2-17-1/image#!opt-fixedWidth
+                    enhance: true                       // More info about enhance: http://docs.mobiscroll.com/2-17-1/image#!opt-enhance
+                });
+            
+                $('#imageBasic-show').click(function(){
+                    $('#imageBasic-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#imageBasic-clear').click(function () {
+                    $('#imageBasic-demo' + '_dummy').val('');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Unordered list demo script */
+        function listUnorderedInit() {
+            $(function () {
+            
+                // Mobiscroll Treelist initialization
+                $('#listUnordered-demo').mobiscroll().treelist({
+                    theme: $('#theme').val(),          // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),        // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),      // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),            // More info about mode: http://docs.mobiscroll.com/2-17-1/list#!opt-mode
+                    labels: ['Ingredients'],           // More info about labels: http://docs.mobiscroll.com/2-17-1/list#!opt-labels
+                    placeholder: 'Please Select ...',  // More info about placeholder: http://docs.mobiscroll.com/2-17-1/list#!opt-placeholder
+                    fixedWidth: 200                    // More info about fixedWidth: http://docs.mobiscroll.com/2-17-1/list#!opt-fixedWidth
+                });
+            
+                $('#listUnordered-show').click(function(){
+                    $('#listUnordered-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#listUnordered-clear').click(function () {
+                    $('#listUnordered-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* With time scroller demo script */
+        function calendarTimeInit() {
+            $(function () {
+            
+                // Mobiscroll Calendar initialization
+                $('#calendarTime-demo').mobiscroll().calendar({
+                    theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),      // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),          // More info about mode: http://docs.mobiscroll.com/2-17-1/calendar#!opt-mode
+                    controls: ['calendar', 'time'],  // More info about controls: http://docs.mobiscroll.com/2-17-1/calendar#!opt-controls
+                    mode: 'mixed'                    // More info about mode: http://docs.mobiscroll.com/2-17-1/calendar#!opt-mode
+                });
+                
+                $('#calendarTime-show').click(function(){
+                    $('#calendarTime-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#calendarTime-clear').click(function () {
+                    $('#calendarTime-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Basic usage demo script */
+        function calendarBasicInit() {
+            $(function () {
+            
+                // Mobiscroll Calendar initialization
+                $('#calendarBasic-demo').mobiscroll().calendar({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val()         // More info about mode: http://docs.mobiscroll.com/2-17-1/calendar#!opt-mode
+                });
+            
+                $('#calendarBasic-show').click(function(){
+                    $('#calendarBasic-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#calendarBasic-clear').click(function () {
+                    $('#calendarBasic-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Multi day select demo script */
+        function calendarMultidayInit() {
+            $(function () {
+            
+                var now = new Date(),
+                    year = now.getFullYear(),
+                    month = now.getMonth();
+            
+                // Mobiscroll Calendar initialization
+                $('#calendarMultiday-demo').mobiscroll().calendar({
+                    theme: $('#theme').val(),                                                                          // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),                                                                        // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),                                                                      // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                                                                            // More info about mode: http://docs.mobiscroll.com/2-17-1/calendar#!opt-mode
+                    counter: true,                                                                                     // More info about counter: http://docs.mobiscroll.com/2-17-1/calendar#!opt-counter
+                    multiSelect: true,                                                                                 // More info about multiSelect: http://docs.mobiscroll.com/2-17-1/calendar#!opt-multiSelect
+                    selectedValues: [ new Date(year, month, 1), new Date(year, month, 2), new Date(year, month, 10) ]  // More info about selectedValues: http://docs.mobiscroll.com/2-17-1/calendar#!opt-selectedValues
+                }); 
+                
+                $('#calendarMultiday-show').click(function(){
+                    $('#calendarMultiday-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#calendarMultiday-clear').click(function () {
+                    $('#calendarMultiday-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Multiple select demo script */
+        function selectMultipleInit() {
+            $(function () {
+            
+                // Mobiscroll Select initialization
+                $('#selectMultiple-demo').mobiscroll().select({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/select#!opt-mode
+                    minWidth: 200                  // More info about minWidth: http://docs.mobiscroll.com/2-17-1/select#!opt-minWidth
+                });
+            
+                $('#selectMultiple-show').click(function () {
+                    $('#selectMultiple-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#selectMultiple-clear').click(function () {
+                    $('#selectMultiple-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Basic usage demo script */
+        function timespanBasicInit() {
+            $(function () {
+            
+                $('#timespanBasic-demo').mobiscroll().timespan ({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/timespan#!opt-mode
+                    wheelOrder: 'iiss'             // More info about wheelOrder: http://docs.mobiscroll.com/2-17-1/timespan#!opt-wheelOrder
+                });
+                
+                $('#timespanBasic-show').click(function(){
+                    $('#timespanBasic-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#timespanBasic-clear').click(function () {
+                    $('#timespanBasic-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Day/Hour/Minute span demo script */
+        function timespanDhmInit() {
+            $(function () {
+            
+                $('#timespanDhm-demo').mobiscroll().timespan ({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/timespan#!opt-mode
+                    wheelOrder: 'ddhhii'           // More info about wheelOrder: http://docs.mobiscroll.com/2-17-1/timespan#!opt-wheelOrder
+                });
+                
+                $('#timespanDhm-show').click(function(){
+                    $('#timespanDhm-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#timespanDhm-clear').click(function () {
+                    $('#timespanDhm-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Countdown demo script */
+        function timerCountdownInit() {
+            $(function () {
+            
+                // Mobiscroll Timer initialization
+                $('#timerCountdown-demo').mobiscroll().timer({
+                    theme: $('#theme').val(),                                // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),                              // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),                            // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                                  // More info about mode: http://docs.mobiscroll.com/2-17-1/timer#!opt-mode
+                    countDirection: 'down',                                  // More info about countDirection: http://docs.mobiscroll.com/2-17-1/timer#!opt-countDirection
+                    targetTime: 10,                                          // More info about targetTime: http://docs.mobiscroll.com/2-17-1/timer#!opt-targetTime
+                    maxWheel: 'minutes',                                     // More info about maxWheel: http://docs.mobiscroll.com/2-17-1/timer#!opt-maxWheel
+                    minWidth: 100,                                           // More info about minWidth: http://docs.mobiscroll.com/2-17-1/timer#!opt-minWidth
+                    onFinish: function () { alert('Countdown finished!'); }  // More info about onFinish: http://docs.mobiscroll.com/2-17-1/timer#!event-onFinish
+                });
+            
+            });
+        }
+
+        /* Basic usage demo script */
+        function colorHxInit() {
+            $(function () {
+            
+                // Mobiscroll Color initialization
+                $('#colorHx-demo').mobiscroll().color({	
+                    theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),      // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),          // More info about mode: http://docs.mobiscroll.com/2-17-1/color#!opt-mode
+                    onBeforeShow: function (inst) {  // More info about onBeforeShow: http://docs.mobiscroll.com/2-17-1/color#!event-onBeforeShow
+                        if ($(this).text()) {
+                            inst.setVal($(this).text());
+                        } else {
+                            $(this).text('#colorHx-ff0000').css('background-color', 'red');
+                        }
+                    },
+                    onSelect: function (v, inst) {   // More info about onSelect: http://docs.mobiscroll.com/2-17-1/color#!event-onSelect
+                        $(this).text(v).css('background-color', v);
+                    }
+                });
+            
+            });	
+        }
+
+        /* Basic usage demo script */
+        function rangeBasicInit() {
+            $(function () {
+            
+                // Mobiscroll Range initialization
+                $('#rangeBasic-demo').mobiscroll().range({
+                    theme: $('#theme').val(),                                       // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),                                     // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),                                   // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                                         // More info about mode: http://docs.mobiscroll.com/2-17-1/range#!opt-mode
+                    defaultValue: [ new Date(2014, 3, 10), new Date(2014, 3, 17) ]  // More info about defaultValue: http://docs.mobiscroll.com/2-17-1/range#!opt-defaultValue
+                });
+            
+                $('#rangeBasic-show').click(function(){
+                    $('#rangeBasic-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#rangeBasic-clear').click(function () {
+                    $('#rangeBasic-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Time range demo script */
+        function rangeTimeInit() {
+            $(function () {
+            
+                // Mobiscroll Range initialization
+                $('#rangeTime-demo').mobiscroll().range({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/range#!opt-mode
+                    controls: ['time'],            // More info about controls: http://docs.mobiscroll.com/2-17-1/range#!opt-controls
+                    maxWidth: 100                  // More info about maxWidth: http://docs.mobiscroll.com/2-17-1/range#!opt-maxWidth
+                });
+            
+                $('#rangeTime-show').click(function(){
+                    $('#rangeTime-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#rangeTime-clear').click(function () {
+                    $('#rangeTime-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Two inputs demo script */
+        function rangeTwoinputsInit() {
+            $(function () {
+            
+                // Mobiscroll Range initialization
+                $('#rangeTwoinputs-demo').mobiscroll().range({	
+                    theme: $('#theme').val(),                 // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),               // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),             // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                   // More info about mode: http://docs.mobiscroll.com/2-17-1/range#!opt-mode
+                    startInput: '#rangeTwoinputs-startDate',  // More info about startInput: http://docs.mobiscroll.com/2-17-1/range#!opt-startInput
+                    endInput: '#rangeTwoinputs-endDate'       // More info about endInput: http://docs.mobiscroll.com/2-17-1/range#!opt-endInput
+                });
+            
+            });
+        }
+
+        /* Create, remove, update demo script */
+        function listviewUpdateInit() {
+            $(function () {
+            
+                var ids = 6;
+            
+                // Mobiscroll Listview initialization
+                $('#listviewUpdate-demo').mobiscroll().listview({
+                    theme: $('#theme').val(),    // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val(),
+                    sortable: true,              // More info about sortable: http://docs.mobiscroll.com/2-17-1/listview#!opt-sortable
+                    iconSlide: true,             // More info about iconSlide: http://docs.mobiscroll.com/2-17-1/listview#!opt-iconSlide
+                    altRow: true,                // More info about altRow: http://docs.mobiscroll.com/2-17-1/listview#!opt-altRow
+                    stages: [                    // More info about stages: http://docs.mobiscroll.com/2-17-1/listview#!opt-stages
+                        { 
+                            percent: 25, 
+                            color: 'crimson', 
+                            icon: 'checkmark', 
+                            text: 'Complete', 
+                            action: function (item, inst, index) {
+                                $('.md-wo-status', item).text('Completed');
+                            }
+                        },
+                        { 
+                            percent: -50, 
+                            color: 'red', 
+                            icon: 'remove', 
+                            text: 'Delete', 
+                            confirm: true, 
+                            action: function (item, inst, index) {
+                                inst.remove(item);
+                                return false;
+                            }
+                        },
+                        { 
+                            percent: 50, 
+                            color: 'green',
+                            icon: 'plus',
+                            text: 'Spawn',
+                            undo: true,          // More info about undo: http://docs.mobiscroll.com/2-17-1/listview#!methods-undo
+                            action: function (item, inst, index) {
+                                inst.add(++ids, 'Work order #listviewUpdate-000' + ids + ' created from WO #listviewUpdate-000' + item.attr('data-id') + '<div class="md-wo-status">Assigned</div>', index + 1);
+                            }
+                        },
+                        {
+                            percent: -25, 
+                            color: 'olive',
+                            icon: 'clock',
+                            text: 'Pending',
+                            action: function (item, inst, index) {
+                                $('.md-wo-status', item).text('Pending');
+                            }
+                        }
+                    ],
+                    onItemAdd: function () {
+                        $('#listviewUpdate-demo_note').hide();
+                    },
+                    onItemRemove: function () {
+                        if ($('li', this).length < 2) {
+                            $('#listviewUpdate-demo_note').show();
+                        }
+                    }
+                });
+            
+                $('#listviewUpdate-demo_note').click(function () {
+                    window.location.reload();
+                });
+            
+            });
+            
+        }
+
+        /* Sort handle demo script */
+        function listviewSorthandleInit() {
+            $(function () {
+            
+                // Mobiscroll Listview initialization
+                $('#listviewSorthandle-demo').mobiscroll().listview({
+                    theme: $('#theme').val(),       // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),     // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val(),
+                    swipe: false,                   // More info about swipe: http://docs.mobiscroll.com/2-17-1/listview#!opt-swipe
+                    sortable: { handle: 'right' },  // More info about sortable: http://docs.mobiscroll.com/2-17-1/listview#!opt-sortable
+                    enhance: true                   // More info about enhance: http://docs.mobiscroll.com/2-17-1/listview#!opt-enhance
+                });
+            
+            });
+        }
+
+        /* Action menu demo script */
+        function listviewActionmenuInit() {
+            $(function () {
+                
+                // Mobiscroll Listview initialization
+                $('#listviewActionmenu-demo').mobiscroll().listview({
+                    theme: $('#theme').val(),    // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val(),
+                    enhance: true,               // More info about enhance: http://docs.mobiscroll.com/2-17-1/listview#!opt-enhance
+                    actions: [                   // More info about actions: http://docs.mobiscroll.com/2-17-1/listview#!opt-actions
+                        {
+                            icon: 'link',
+                            action: function (li, inst) {
+                                notify('Linked');
+                            }
+                        },
+                        {
+                            icon: 'star3',
+                            action: function (li, inst) {
+                                notify('Starred');
+                            }
+                        },
+                        {
+                            icon: 'remove',
+                            undo: true,          // More info about undo: http://docs.mobiscroll.com/2-17-1/listview#!methods-undo
+                            action: function (li, inst) {
+                                inst.remove(li);
+                                return false;
+                            }
+                        },
+                        {
+                            icon: 'download',
+                            action: function (li, inst) {
+                                notify('Downloaded');
+                            }
+                        },
+                    ],
+                    itemGroups: {                // More info about itemGroups: http://docs.mobiscroll.com/2-17-1/listview#!opt-itemGroups
+                        folder: {
+                            actions: [                   // More info about actions: http://docs.mobiscroll.com/2-17-1/listview#!opt-actions
+                                {
+                                    icon: 'link',
+                                    action: function (li, inst) {
+                                        notify('Linked');
+                                    }
+                                },
+                                {
+                                    icon: 'star3',
+                                    action: function (li, inst) {
+                                        notify('Starred');
+                                    }
+                                },
+                                {
+                                    icon: 'download',
+                                    action: function (li, inst) {
+                                        notify('Downloaded');
+                                    }
+                                },
+                            ]
+                        },
+                        music: {
+                            actions: [                   // More info about actions: http://docs.mobiscroll.com/2-17-1/listview#!opt-actions
+                                {
+                                    icon: 'link',
+                                    action: function (li, inst) {
+                                        notify('Linked');
+                                    }
+                                },
+                                {
+                                    icon: 'star3',
+                                    action: function (li, inst) {
+                                        notify('Starred');
+                                    }
+                                },
+                                {
+                                    icon: 'download',
+                                    action: function (li, inst) {
+                                        notify('Downloaded');
+                                    }
+                                },
+                                {
+                                    icon: 'play',
+                                    action: function (li, inst) {
+                                        notify('Playing...');
+                                    }
+                                },
+                                {
+                                    icon: 'remove',
+                                    undo: true,          // More info about undo: http://docs.mobiscroll.com/2-17-1/listview#!methods-undo
+                                    action: function (li, inst) {
+                                        inst.remove(li);
+                                        return false;
+                                    }
+                                }
+                            ]
+                        },
+                        movie: {
+                            actions: [                   // More info about actions: http://docs.mobiscroll.com/2-17-1/listview#!opt-actions
+                                {
+                                    icon: 'link',
+                                    action: function (li, inst) {
+                                        notify('Linked');
+                                    }
+                                },
+                                {
+                                    icon: 'star3',
+                                    action: function (li, inst) {
+                                        notify('Starred');
+                                    }
+                                },
+                                {
+                                    icon: 'download',
+                                    action: function (li, inst) {
+                                        notify('Downloaded');
+                                    }
+                                },
+                                {
+                                    icon: 'play',
+                                    action: function (li, inst) {
+                                        notify('Playing...');
+                                    }
+                                },
+                                {
+                                    icon: 'remove',
+                                    undo: true,          // More info about undo: http://docs.mobiscroll.com/2-17-1/listview#!methods-undo
+                                    action: function (li, inst) {
+                                        inst.remove(li);
+                                        return false;
+                                    }
+                                }
+                            ]
+                        },
+                        picture:
+                        {
+                            actions: [                   // More info about actions: http://docs.mobiscroll.com/2-17-1/listview#!opt-actions
+                                {
+                                    icon: 'link',
+                                    action: function (li, inst) {
+                                        notify('Linked');
+                                    }
+                                },
+                                {
+                                    icon: 'star3',
+                                    action: function (li, inst) {
+                                        notify('Starred');
+                                    }
+                                },
+                                {
+                                    icon: 'download',
+                                    action: function (li, inst) {
+                                        notify('Downloaded');
+                                    }
+                                },
+                                {
+                                    icon: 'print',
+                                    action: function (li, inst) {
+                                        notify('Printing...');
+                                    }
+                                },
+                                {
+                                    icon: 'remove',
+                                    undo: true,          // More info about undo: http://docs.mobiscroll.com/2-17-1/listview#!methods-undo
+                                    action: function (li, inst) {
+                                        inst.remove(li);
+                                        return false;
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                });
+            
+                var notification = $('<div class="demo-notification"><div class="demo-notification-i"></div></div>').appendTo('body'),
+                    notificationTimer;
+            
+                function notify(text) {
+            
+                    clearTimeout(notificationTimer);
+                    
+                    notification.show().find('.demo-notification-i').html(text);
+            
+                    if (notification.hasClass('demo-notification-v')) {
+                        notification.removeClass('demo-notification-v');
+                        notificationTimer = setTimeout(function () {
+                            notification.addClass('demo-notification-v');
+                        }, 200);
+                    } else {
+                        notification.addClass('demo-notification-v');
+                    }
+             
+                    notificationTimer = setTimeout(function () { 
+                        notification.removeClass('demo-notification-v'); 
+                        notificationTimer = setTimeout(function () {
+                           notification.hide();
+                        }, 200);
+                    }, 2000);
+                }
+             
+            });
+        }
+
+        /* Custom Icons demo script */
+        function ratingIconsInit() {
+            $(function () {
+            
+                // Mobiscroll Rating initialization
+                $('#ratingIcons-demo').mobiscroll().rating({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/rating#!opt-mode
+                    label: 'Rating',               // More info about label: http://docs.mobiscroll.com/2-17-1/rating#!opt-label
+                    icon: { filled: 'heart' }      // More info about icon: http://docs.mobiscroll.com/2-17-1/rating#!opt-icon
+                });
+            
+                $('#ratingIcons-show').click(function () {
+                    $('#ratingIcons-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#ratingIcons-clear').click(function () {
+                    $('#ratingIcons-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Decimal demo script */
+        function numberDecimalInit() {
+            $(function () {
+            
+                // Mobiscroll Number initialization
+                $('#numberDecimal-demo').mobiscroll().number({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/number#!opt-mode
+                    maxWidth: 100                  // More info about maxWidth: http://docs.mobiscroll.com/2-17-1/number#!opt-maxWidth
+                });
+                
+                $('#numberDecimal-show').click(function(){
+                    $('#numberDecimal-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numberDecimal-clear').click(function () {
+                    $('#numberDecimal-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /*  Decimal demo script */
+        function numpadDecimalInit() {
+            $(function () {
+            
+                // Mobiscroll Numpad initialization
+                $('#numpadDecimal-demo').mobiscroll().numpad({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    min: 1,
+                    scale: 2,
+                    preset: 'decimal'              // More info about preset: http://docs.mobiscroll.com/2-17-1/numpad#!opt-preset
+                });
+                
+                $('#numpadDecimal-show').click(function(){
+                    $('#numpadDecimal-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numpadDecimal-clear').click(function () {
+                    $('#numpadDecimal-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Currency demo script */
+        function numpadCurrencyInit() {
+            $(function () {
+            
+                // Mobiscroll Numpad initialization
+                $('#numpadCurrency-demo').mobiscroll().numpad({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    preset: 'decimal',             // More info about preset: http://docs.mobiscroll.com/2-17-1/numpad#!opt-preset
+                    prefix: '$',
+                    returnAffix: true
+                });
+            
+                $('#numpadCurrency-show').click(function(){
+                    $('#numpadCurrency-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numpadCurrency-clear').click(function () {
+                    $('#numpadCurrency-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Time demo script */
+        function numpadTimeInit() {
+            $(function () {
+            
+                // Mobiscroll Numpad initialization
+                $('#numpadTime-demo').mobiscroll().numpad({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    preset: 'time',                // More info about preset: http://docs.mobiscroll.com/2-17-1/numpad#!opt-preset
+                    timeFormat: 'HH:ii A'
+                });
+            
+                $('#numpadTime-show').click(function(){
+                    $('#numpadTime-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numpadTime-clear').click(function () {
+                    $('#numpadTime-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Masked Entry - PIN demo script */
+        function numpadPinInit() {
+            $(function () {
+            
+                // Mobiscroll Numpad initialization
+                $('#numpadPin-demo').mobiscroll().numpad({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    template: 'dddd',              // More info about template: http://docs.mobiscroll.com/2-17-1/numpad#!opt-template
+                    allowLeadingZero: true,        // More info about allowLeadingZero: http://docs.mobiscroll.com/2-17-1/numpad#!opt-allowLeadingZero
+                    placeholder: '-',              // More info about placeholder: http://docs.mobiscroll.com/2-17-1/numpad#!opt-placeholder
+                    mask: '*',                     // More info about mask: http://docs.mobiscroll.com/2-17-1/numpad#!opt-mask
+                    validate: function (val) {     // More info about validate: http://docs.mobiscroll.com/2-17-1/numpad#!event-validate
+                        return {
+                            invalid: val.length != 4
+                        };
+                    }
+                });
+            
+                $('#numpadPin-show').click(function(){
+                    $('#numpadPin-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numpadPin-clear').click(function () {
+                    $('#numpadPin-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Date with min and max demo script */
+        function datetimeMinmaxInit() {
+            $(function () {
+            
+                // Mobiscroll Date & Time initialization
+                $('#datetimeMinmax-demo').mobiscroll().date({
+                    theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),      // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),          // More info about mode: http://docs.mobiscroll.com/2-17-1/datetime#!opt-mode
+                    minDate: new Date(2014, 8, 15),  // More info about minDate: http://docs.mobiscroll.com/2-17-1/datetime#!opt-minDate
+                    maxDate: new Date(2024, 8, 14)   // More info about maxDate: http://docs.mobiscroll.com/2-17-1/datetime#!opt-maxDate
+                });
+
+                $('#datetimeMinmax-show').click(function(){
+                    $('#datetimeMinmax-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#datetimeMinmax-clear').click(function () {
+                    $('#datetimeMinmax-demo').mobiscroll('clear');
+                    return false;
+                });
+
+            });
+        }
+
+        /* Tab menu demo script */
+        function menustripTabsInit() {
+            $(function () {
+            
+                // Mobiscroll Menustrip initialization
+                $('#menustripTabs-demo').mobiscroll().menustrip({
+                    theme: $('#theme').val(),           // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),         // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),       // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    type: 'tabs',                       // More info about type: http://docs.mobiscroll.com/2-17-1/menustrip#!opt-type
+                    onItemTap: function (item, inst) {  // More info about onItemTap: http://docs.mobiscroll.com/2-17-1/menustrip#!event-onItemTap
+                        $('.md-tab-h').removeClass('md-tab-sel');
+                        $('#' + item.data('tab')).addClass('md-tab-sel');
+                    }
+                });
+            
+                // Mobiscroll Menustrip initialization
+                $('.md-apps-ul').mobiscroll().listview({ theme: $('#theme').val(), 
+                    swipe: false
+                });
+            
+            });
+        }
+
+        /* Icon and Text demo script */
+        function imageIconsInit() {
+            $(function () {
+            
+                // Mobiscroll Image initialization
+                $('#imageIcons-demo').mobiscroll().image({
+                    theme: $('#theme').val(),          // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),        // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),      // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),            // More info about mode: http://docs.mobiscroll.com/2-17-1/image#!opt-mode
+                    placeholder: 'Please Select ...',  // More info about placeholder: http://docs.mobiscroll.com/2-17-1/image#!opt-placeholder
+                    showLabel: false,                  // More info about showLabel: http://docs.mobiscroll.com/2-17-1/image#!opt-showLabel
+                    enhance: true                      // More info about enhance: http://docs.mobiscroll.com/2-17-1/image#!opt-enhance
+                });
+            
+                $('#imageIcons-show').click(function(){
+                    $('#imageIcons-demo').mobiscroll('show');
+                    return false;
+                });
+            
+                $('#imageIcons-clear').click(function () {
+                    $('#imageIcons-demo').mobiscroll('clear');
+                    return false;
+                });
+                
+            });
+        }
+
+        /* Step demo script */
+        function numberStepInit() {
+            $(function () {
+            
+                // Mobiscroll Number initialization
+                $('#numberStep-demo').mobiscroll().number({
+                    theme: $('#theme').val(),      // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),    // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),  // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),        // More info about mode: http://docs.mobiscroll.com/2-17-1/number#!opt-mode
+                    layout: 'fixed',               // More info about layout: http://docs.mobiscroll.com/2-17-1/number#!opt-layout
+                    step: 5                        // More info about step: http://docs.mobiscroll.com/2-17-1/number#!opt-step
+                });
+            
+                $('#numberStep-show').click(function(){
+                    $('#numberStep-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#numberStep-clear').click(function () {
+                    $('#numberStep-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+
+        }
+
+        /* Dialog demo script */
+        function widgetDialogInit() {
+            $(function () {
+            
+                // Mobiscroll Widget initialization
+                $('#widgetDialog-demo').mobiscroll().widget({
+                    theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),      // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    buttons: [                       // More info about buttons: http://docs.mobiscroll.com/2-17-1/widget#!opt-buttons
+                        {
+                            text: 'Great', 
+                            handler: 'set'
+                        },
+                        {
+                            text: 'I’ve been better', 
+                            handler: 'cancel'
+                        }
+                    ],
+                    onBeforeShow: function (inst) {  // More info about onBeforeShow: http://docs.mobiscroll.com/2-17-1/widget#!event-onBeforeShow
+                        var s = inst.settings;
+                        
+                        if (s.theme == 'wp' || s.baseTheme == 'wp') {
+                            s.buttons[0].icon = 'checkmark';
+                            s.buttons[1].icon = 'close';
+                        }
+                    }
+                });
+
+                $('#widgetDialog-show').click(function(){
+                    $('#widgetDialog-demo').mobiscroll('show'); 
+                    return false;
+                });
+
+            });
+        }
+
+        /* Alert message demo script */
+        function widgetMessageInit() {
+            $(function () {
+            
+                // Mobiscroll Widget initialization
+                $('#widgetMessage-demo').mobiscroll().widget({
+                    theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),      // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),
+                    buttons: [                       // More info about buttons: http://docs.mobiscroll.com/2-17-1/widget#!opt-buttons
+                        { 
+                            text: 'Agree', 
+                            handler: 'set'
+                        },
+                        { 
+                            text: 'Disagree', 
+                            handler: 'cancel'
+                        }
+                    ],
+                    onBeforeShow: function (inst) {  // More info about onBeforeShow: http://docs.mobiscroll.com/2-17-1/widget#!event-onBeforeShow
+                        var s = inst.settings;
+                        
+                        if (s.theme == 'wp' || s.baseTheme == 'wp') {
+                            s.buttons[0].icon = 'checkmark';
+                            s.buttons[1].icon = 'close';
+                        }
+                    }
+                });
+
+                $('#widgetMessage-show').click(function(){
+                    $('#widgetMessage-demo').mobiscroll('show'); 
+                    return false;
+                });
+
+            });
+        }
+
+        /* Custom Units demo script */
+        function scrollerCustomunitsInit() {
+            $(function () {
+            
+                var units = ['oz', 'g', 'serving'],
+                    prevUnit = 'oz',
+                    wheel = [[
+                        {
+                            values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+                        },
+                        {
+                            keys: ['', '1/4', '1/2', '3/4'],
+                            values: ['-', '1/4', '1/2', '3/4']
+                        },
+                        {
+                            values: units
+                        }
+                    ]];
+            	
+                // Mobiscroll Scroller initialization
+                $('#scrollerCustomunits-demo').mobiscroll().scroller({
+                    theme: $('#theme').val(),                            // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),                          // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),                        // Specify display mode like: display: 'bottom' or omit setting to use default
+                    mode: $('#mode').val(),                              // More info about mode: http://docs.mobiscroll.com/2-17-1/scroller#!opt-mode
+                    wheels: wheel,                                       // More info about wheels: http://docs.mobiscroll.com/2-17-1/scroller#!opt-wheels
+                    validate: function (html, index, time, dir, inst) {  // More info about validate: http://docs.mobiscroll.com/2-17-1/scroller#!event-validate
+                        var i,
+                            mult = 1,
+                            currUnit = inst._tempWheelArray[2];
+                
+                        if (currUnit == 'g' && (prevUnit == 'oz' || prevUnit == 'serving')) {
+                            mult = 28;
+                        } else if ((currUnit != 'oz' || currUnit != 'serving') && prevUnit == 'g') {
+                            mult = 1 / 28;
+                        }
+                        
+                        if (currUnit != 'serving') {
+                            $('.dwwl1 .dw-li:not(:first)', html).removeClass('dw-v');
+                        } else {
+                            $('.dwwl1 .dw-li', html).addClass('dw-v');
+                        }
+            
+                        if (index == 2 && currUnit != prevUnit) {
+                            for (i = 0; i < wheel[0][0].values.length; ++i) {
+                                wheel[0][0].values[i] = Math.round(wheel[0][0].values[i] * mult);
+                            }
+            
+                            inst._tempWheelArray[0] = inst._tempWheelArray[0] * mult;
+                            inst.settings.wheels = wheel;
+                            inst.changeWheel([0]);
+                            prevUnit = currUnit;
+                        }
+                    },
+                    parseValue: function (val) {
+                        var hasUnit;
+                        
+                        if (val) {
+                            val = val.toString().split(' ');
+                            hasUnit = units.indexOf(val[1]) !== -1;
+                            return [val[0], (hasUnit ? '' :val[1]), (hasUnit ? val[1] : val[2])];
+                        }
+                        
+                        return [0, '', 'oz'];
+                    },
+                    formatValue: function (data) {
+                        return (data[2] == 'serving' && data[0] == 0 && data[1] ? '' : data[0]) + (data[1] ? ' ' + data[1] : '') + ' ' + data[2];
+                    }	
+                });
+
+                $('#scrollerCustomunits-show').click(function(){
+                    $('#scrollerCustomunits-demo').mobiscroll('show'); 
+                    return false;
+                });
+            
+                $('#scrollerCustomunits-clear').click(function () {
+                    $('#scrollerCustomunits-demo').mobiscroll('clear');
+                    return false;
+                });
+            
+            });
+        }
+
+        /* Text Fields demo script */
+        function formsTextfieldsInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Select demo script */
+        function formsSelectInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Checkbox demo script */
+        function formsCheckboxInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Switch demo script */
+        function formsSwitchInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Radio buttons demo script */
+        function formsRadiobtnInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Buttons demo script */
+        function formsButtonsInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Typography demo script */
+        function formsTypographyInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Slider demo script */
+        function formsSliderInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        /* Stepper demo script */
+        function formsStepperInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+
+            $(function () {
+                
+                var cbAllow = $('.md-allow'),
+                    stepperLuggage = $('.md-luggage'),
+                    stepperCons = $('.md-consumption'),
+                    numpadCons = $('.md-numpad');
+            
+                cbAllow.change(function () {
+                    stepperLuggage.prop('disabled', !this.checked);
+                });
+                
+                numpadCons.mobiscroll().numpad({  theme: $('#theme').val(),
+                    preset: 'decimal',
+                    min: 5,
+                    max: 120,
+                    onSelect: function (v) {
+                       stepperCons.mobiscroll('setVal', v);
+                    }
+                }).mobiscroll('setVal', stepperCons.val());
+                
+                numpadCons.mobiscroll('tap', stepperCons, function () {
+                    numpadCons.mobiscroll('show');
+                });
+                
+                stepperCons.change(function () {
+                    numpadCons.mobiscroll('setVal', stepperCons.val());
+                });
+            
+            });
+            
+        }
+
+        /* Progress demo script */
+        function formsProgressInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+            $(function () {
+                
+                var downloadInst = $('#formsProgress-download').mobiscroll('getInst'),
+                    interval, 
+                    i;
+            
+                function startDownload() {
+                    i = 0;
+                    clearInterval(interval);
+                    interval = setInterval(function () {
+                        if (i == 100) {
+                            clearInterval(interval);   
+                        }
+                        downloadInst.setVal(i+=5);
+                    }, 600);
+                }
+                
+                $('.md-restart').click(function () {
+                    startDownload();
+                });
+                
+                startDownload();
+                
+                var inst = $('#formsProgress-progress').mobiscroll('getInst'),
+                    val;
+                
+                $('.md-update').click(function () {
+                    if (inst.getVal() >= 100) {
+                        inst.setVal(0);   
+                    } else {
+                        inst.setVal(inst.getVal() + 25);
+                    }
+                });
+                
+                var upInterval,
+                    uploadList = ['1MB', '5MB', '10MB', '50MB'],
+                    uploadInst = $('#formsProgress-uploadProg').mobiscroll('getInst');
+
+                function restartUpload() {
+                     uploadInst.setVal(0);
+                     clearInterval(upInterval);
+                    upInterval = setInterval(function () {
+                        if (uploadInst.getVal() >= 100) {
+                            clearInterval(upInterval);
+                        } 
+                        
+                        uploadInst.setVal(uploadInst.getVal() + 17);
+                    }, 1000);
+                }
+                
+                $('.md-upload .mbsc-progress-step-label').each(function (i,v) {
+                    $(v).text(uploadList[i]);
+                });
+                
+                $('.md-restart-up').click(function () {
+                    restartUpload();
+                });
+            
+                restartUpload();
+            
+                var labelList = ['Cart', 'Signup', 'Checkout', 'Success'],
+                    cartInst = $('#formsProgress-cartProg').mobiscroll('getInst');
+                
+                $('.md-demo .mbsc-progress-step-label').each(function (i,v) {
+                    $(v).text(labelList[i]);
+                });
+            
+                $('.md-next-step').click(function () {
+                	 if (cartInst.getVal() >= 100) {
+                        cartInst.setVal(0);   
+                    } else {
+                        cartInst.setVal(cartInst.getVal() + 33.34);
+                    }
+                });
+            
+            });
+            
+        }
+
+        /* Segmented demo script */
+        function formsSegmentedInit() {
+            // Use the setDefaults method to change the theme
+            $.mobiscroll.setDefaults({
+                theme: $('#theme').val(),        // Specify theme like: theme: 'ios' or omit setting to use default
+                    lang: $('#language').val(),  // Specify language like: lang: 'pl' or omit setting to use default
+                    display: $('#display').val(),
+                    mode: $('#mode').val()
+            });
+            
+        }
+
+        </script>
+</head>
+<body>
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Demo configurator markup START, ignore this in your implementation -->
+    <div class="header">
+        <h1>Mobiscroll</h1>
+    </div>
+    <div id="main">
+        <div>
+            <label for="theme">Theme</label>
+            <select name="theme" id="theme" class="settings">
+                <option value="">Default / Auto</option>
+                <option value="mobiscroll">Mobiscroll</option>
+                <option value="jqm">jQuery Mobile</option>
+                <option value="ios-classic">iOS Classic</option>
+                <option value="android-holo">Android Holo</option>
+                <option value="android">Android</option>
+                <option value="sense-ui">Sense UI</option>
+                <option value="wp">Windows Phone</option>
+                <option value="ios">iOS</option>
+                <option value="bootstrap">Bootstrap</option>
+                <option value="sense">Sense</option>
+                <option value="android-holo-light">Android Holo Light</option>
+                <option value="wp-light">Windows Phone Light</option>
+                <option value="sense-dark">Sense Dark</option>
+                <option value="mobiscroll-dark">Mobiscroll Dark</option>
+                <option value="material">Material</option>
+                <option value="material-dark">Material Dark</option>
+            </select>
+        </div>
+        <div>
+            <label for="mode">Mode</label>
+            <select name="mode" id="mode" class="settings">
+                <option value="scroller">Scroller</option>
+                <option value="clickpick">Clickpick</option>
+                <option value="mixed">Mixed</option>
+            </select>
+        </div>
+        <div>
+            <label for="display">Display</label>
+            <select name="display" id="display" class="settings">
+                <option value="modal">Modal</option>
+                <option value="inline">Inline</option>
+                <option value="bubble">Bubble</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+            </select>
+        </div>
+        <div>
+            <label for="language">Language</label>
+            <select name="language" id="language" class="settings">
+                <option value="">English</option>
+                <option value="zh">Chinese</option>
+            </select>
+        </div>
+        <div>
+            <label for="demo">Demo</label>
+            <select name="demo" id="demo" class="settings">
+                
+                <optgroup label="Datetime">
+                    <option value="datetimeDate" selected>Basic usage date</option>
+                    <option value="datetimeInvalid" >Datetime with invalids</option>
+                    <option value="datetimeTime" >Basic usage time</option>
+                    <option value="datetimeMinmax" >Date with min and max</option>
+                </optgroup>
+                <optgroup label="Select">
+                    <option value="selectBasic" >Basic usage</option>
+                    <option value="selectGroupselect" >Group options</option>
+                    <option value="selectMultiple" >Multiple select</option>
+                </optgroup>
+                <optgroup label="Rating">
+                    <option value="ratingStars" >Basic usage</option>
+                    <option value="ratingGrades" >Grades</option>
+                    <option value="ratingIcons" >Custom Icons</option>
+                </optgroup>
+                <optgroup label="Distance">
+                    <option value="distanceDistance" >Distance</option>
+                </optgroup>
+                <optgroup label="Speed">
+                    <option value="speedSpeed" >Speed</option>
+                </optgroup>
+                <optgroup label="Temperature">
+                    <option value="temperatureTemperature" >Temperature</option>
+                </optgroup>
+                <optgroup label="Mass">
+                    <option value="massMass" >Mass</option>
+                </optgroup>
+                <optgroup label="Force">
+                    <option value="forceForce" >Force</option>
+                </optgroup>
+                <optgroup label="List">
+                    <option value="listTreelist" >Basic usage</option>
+                    <option value="listUnordered" >Unordered list</option>
+                </optgroup>
+                <optgroup label="Image">
+                    <option value="imageText" >Image and Text</option>
+                    <option value="imageBasic" >Image Only</option>
+                    <option value="imageIcons" >Icon and Text</option>
+                </optgroup>
+                <optgroup label="Calendar">
+                    <option value="calendarTime" >With time scroller</option>
+                    <option value="calendarBasic" >Basic usage</option>
+                    <option value="calendarMultiday" >Multi day select</option>
+                </optgroup>
+                <optgroup label="Timespan">
+                    <option value="timespanBasic" >Basic usage</option>
+                    <option value="timespanDhm" >Day/Hour/Minute span</option>
+                </optgroup>
+                <optgroup label="Timer">
+                    <option value="timerCountdown" >Countdown</option>
+                </optgroup>
+                <optgroup label="Color">
+                    <option value="colorHx" >Basic usage</option>
+                </optgroup>
+                <optgroup label="Range">
+                    <option value="rangeBasic" >Basic usage</option>
+                    <option value="rangeTime" >Time range</option>
+                    <option value="rangeTwoinputs" >Two inputs</option>
+                </optgroup>
+                <optgroup label="Listview">
+                    <option value="listviewUpdate" >Create, remove, update</option>
+                    <option value="listviewSorthandle" >Sort handle</option>
+                    <option value="listviewActionmenu" >Action menu</option>
+                </optgroup>
+                <optgroup label="Number">
+                    <option value="numberDecimal" >Decimal</option>
+                    <option value="numberStep" >Step</option>
+                </optgroup>
+                <optgroup label="Numpad">
+                    <option value="numpadDecimal" > Decimal</option>
+                    <option value="numpadCurrency" >Currency</option>
+                    <option value="numpadTime" >Time</option>
+                    <option value="numpadPin" >Masked Entry - PIN</option>
+                </optgroup>
+                <optgroup label="Menustrip">
+                    <option value="menustripTabs" >Tab menu</option>
+                </optgroup>
+                <optgroup label="Widget">
+                    <option value="widgetDialog" >Dialog</option>
+                    <option value="widgetMessage" >Alert message</option>
+                </optgroup>
+                <optgroup label="Scroller">
+                    <option value="scrollerCustomunits" >Custom Units</option>
+                </optgroup>
+                <optgroup label="Forms">
+                    <option value="formsTextfields" >Text Fields</option>
+                    <option value="formsSelect" >Select</option>
+                    <option value="formsCheckbox" >Checkbox</option>
+                    <option value="formsSwitch" >Switch</option>
+                    <option value="formsRadiobtn" >Radio buttons</option>
+                    <option value="formsButtons" >Buttons</option>
+                    <option value="formsTypography" >Typography</option>
+                    <option value="formsSlider" >Slider</option>
+                    <option value="formsStepper" >Stepper</option>
+                    <option value="formsProgress" >Progress</option>
+                    <option value="formsSegmented" >Segmented</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <!-- Demo configurator markup END -->
+    <!-- ------------------------------------------------------------------ -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage date START -->
+    <div class="demo-wrapper demo-wrapper-datetimeDate">
+        <input id="datetimeDate-demo" placeholder="Please Select ..." />
+
+        <button id="datetimeDate-clear">Clear</button>
+        <button id="datetimeDate-show">Show</button>
+    </div>
+    <!-- Basic usage date END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Datetime with invalids START -->
+    <div class="demo-wrapper demo-wrapper-datetimeInvalid">
+        <input id="datetimeInvalid-demo" placeholder="Please Select ..." />
+
+        <button id="datetimeInvalid-clear">Clear</button>
+        <button id="datetimeInvalid-show">Show</button>
+    </div>
+    <!-- Datetime with invalids END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage time START -->
+    <div class="demo-wrapper demo-wrapper-datetimeTime">
+        <input id="datetimeTime-demo" placeholder="Please Select ..." />
+
+        <button id="datetimeTime-clear">Clear</button>
+        <button id="datetimeTime-show">Show</button>
+    </div>
+    <!-- Basic usage time END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-selectBasic">
+        <select name="City" id="selectBasic-demo">
+            <option value="1">Atlanta</option>
+            <option value="2">Berlin</option>
+            <option value="3">Boston</option>
+            <option value="4">Chicago</option>
+            <option value="5">London</option>
+            <option value="6">Los Angeles</option>
+            <option value="7">New York</option>
+            <option value="8">Paris</option>
+            <option value="9">San Francisco</option>
+        </select>
+
+        <button id="selectBasic-clear">Clear</button>
+        <button id="selectBasic-show">Show</button>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Group options START -->
+    <div class="demo-wrapper demo-wrapper-selectGroupselect">
+        <select id="selectGroupselect-demo">
+            <optgroup label="USA">
+                <option value="1">Atlanta</option>
+                <option value="2">Boston</option>
+                <option value="3">Chicago</option>
+                <option value="4">Los Angeles</option>
+                <option value="5">New York</option>
+                <option value="6">San Francisco</option>
+            </optgroup>
+            <optgroup label="UK">
+                <option value="7">Bath</option>
+                <option value="8">Bristol</option>
+                <option value="9">Cambridge</option>
+                <option value="10">London</option>
+                <option value="11">Leeds</option>
+                <option value="12">Manchester</option>
+                <option value="13">Newcastle</option>
+                <option value="14">Oxford</option>
+            </optgroup>
+            <optgroup label="China">
+                <option value="15">Beijing</option>
+                <option value="16">Chongqing</option>
+                <option value="17">Shanghai</option>
+                <option value="18">Shenzhen</option>
+                <option value="19">Tianjin</option>
+            </optgroup>
+        </select>
+
+        <button id="selectGroupselect-clear">Clear</button>
+        <button id="selectGroupselect-show">Show</button>
+    </div>
+    <!-- Group options END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-ratingStars">
+        <ul class="md-products">
+            <li>
+                <div class="md-product">
+                    <img src="images/product1.png" />
+                    <h3>Chocolate sticks</h3>
+                    <p>Chocolate sticks</p>
+                    <span class="md-rate">
+                        <span class="md-rating">4 of 5</span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="md-product">
+                    <img src="images/product2.png" />
+                    <h3>Chocolate chips</h3>
+                    <p>Chocolate chips</p>
+                    <span class="md-rate">
+                        <span class="md-rating">4 of 5</span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="md-product">
+                    <img src="images/product3.png" />
+                    <h3>Milk chocolate</h3>
+                    <p>Milk chocolate</p>
+                    <span class="md-rate">
+                        <span class="md-rating">3 of 5</span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="md-product">
+                    <img src="images/product4.png" />
+                    <h3>Chocolate cupcake</h3>
+                    <p>Chocolate cupcake</p>
+                    <span class="md-rate">
+                        <span class="md-rating">5 of 5</span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="md-product">
+                    <img src="images/product5.png" />
+                    <h3>Chocolate with air</h3>
+                    <p>Chocolate with air bubbles</p>
+                    <span class="md-rate">
+                        <span class="md-rating">5 of 5</span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="md-product">
+                    <img src="images/product6.png" />
+                    <h3>Chocolate truffles</h3>
+                    <p>Chocolate truffles</p>
+                    <span class="md-rate">
+                        <span class="md-rating">5 of 5</span>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Grades START -->
+    <div class="demo-wrapper demo-wrapper-ratingGrades">
+        <input id="ratingGrades-demo" placeholder="Please Select ..." />
+
+        <button id="ratingGrades-clear">Clear</button>
+        <button id="ratingGrades-show">Show</button>
+    </div>
+    <!-- Grades END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Distance START -->
+    <div class="demo-wrapper demo-wrapper-distanceDistance">
+        <input id="distanceDistance-demo" placeholder="Please Select ..." />
+
+        <button id="distanceDistance-clear">Clear</button>
+        <button id="distanceDistance-show">Show</button>
+    </div>
+    <!-- Distance END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Speed START -->
+    <div class="demo-wrapper demo-wrapper-speedSpeed">
+        <input id="speedSpeed-demo" placeholder="Please Select ..." />
+
+        <button id="speedSpeed-clear">Clear</button>
+        <button id="speedSpeed-show">Show</button>
+    </div>
+    <!-- Speed END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Temperature START -->
+    <div class="demo-wrapper demo-wrapper-temperatureTemperature">
+        <input id="temperatureTemperature-demo" placeholder="Please Select ..." />
+
+        <button id="temperatureTemperature-clear">Clear</button>
+        <button id="temperatureTemperature-show">Show</button>
+    </div>
+    <!-- Temperature END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Mass START -->
+    <div class="demo-wrapper demo-wrapper-massMass">
+        <input id="massMass-demo" placeholder="Please Select ..." />
+
+        <button id="massMass-clear">Clear</button>
+        <button id="massMass-show">Show</button>
+    </div>
+    <!-- Mass END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Force START -->
+    <div class="demo-wrapper demo-wrapper-forceForce">
+        <input id="forceForce-demo" placeholder="Please Select ..." />
+
+        <button id="forceForce-clear">Clear</button>
+        <button id="forceForce-show">Show</button>
+    </div>
+    <!-- Force END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-listTreelist">
+        <ul id="listTreelist-demo" style="display:none">
+            <li data-val="Eastern Division">East
+                <ul>
+                    <li data-val="Marketing">Marketing
+                        <ul>
+                            <li data-val="Eden E">Eden E</li>
+                            <li data-val="Milda J">Milda J</li>
+                            <li data-val="Porfirio R">Porfirio R</li>
+                        </ul>
+                    </li>
+                    <li data-val="Research & Development">R&D
+                        <ul>
+                            <li data-val="Frances P">Frances P</li>
+                            <li data-val="Frank D">Frank D</li>
+                            <li data-val="Gianny P">Gianny P</li>
+                            <li data-val="Ivan F">Ivan F</li>
+                            <li data-val="John M">John M</li>
+                            <li data-val="Mildred S">Mildred S</li>
+                            <li data-val="Sam P">Sam P</li>
+                        </ul>
+                    </li>
+                    <li data-val="Sales">Sales
+                        <ul>
+                            <li data-val="Edelmira R">Edelmira R</li>
+                            <li data-val="Francie S">Francie S</li>
+                            <li data-val="Lean F">Lean F</li>
+                            <li data-val="Kirby C">Kirby C</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li data-val="Western Division">West
+                <ul>
+                    <li data-val="Marketing">Marketing
+                        <ul>
+                            <li data-val="Cliff B">Cliff B</li>
+                            <li data-val="Helen D">Helen D</li>
+                            <li data-val="Stephan V">Stephan V</li>
+                        </ul>
+                    </li>
+                    <li data-val="Research & Development">R&D
+                        <ul>
+                            <li data-val="Andy G">Andy G</li>
+                            <li data-val="Danny A">Danny A</li>
+                            <li data-val="Ennio M">Ennio M</li>
+                            <li data-val="Emil E">Emil E</li>
+                            <li data-val="Frank S">Frank S</li>
+                            <li data-val="Gonzo G">Gonzo G</li>
+                            <li data-val="Hal A">Hal A</li>
+                            <li data-val="Jack G">Jack G</li>
+                            <li data-val="John A">John A</li>
+                            <li data-val="Simon D">Simon D</li>
+                            <li data-val="Victor S">Victor S</li>
+                        </ul>
+                    </li>
+                    <li data-val="Sales">Sales
+                        <ul>
+                            <li data-val="Dana A">Dana A</li>
+                            <li data-val="Frank D">Frank D</li>
+                            <li data-val="Leanna S">Leanna S</li>
+                            <li data-val="Michael D">Michael D</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="listTreelist-clear">Clear</button>
+        <button id="listTreelist-show">Show</button>
+        
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Image and Text START -->
+    <div class="demo-wrapper demo-wrapper-imageText">
+        <ul id="imageText-demo" style="display:none">
+            <li data-val="BMW">
+              <img src="images/BMW_logo.png" />
+              <p>BMW</p>
+            </li>
+            <li data-val="Dacia">
+              <img src="images/Dacia_logo.png" />
+              <p>Dacia</p>
+            </li>
+            <li data-val="Ferrari">
+              <img src="images/ferrari_logo.png" />
+              <p>Ferrari</p>
+            </li>
+            <li data-val="Mercedes">
+              <img src="images/mercedes_logo.png" />
+              <p>Mercedes</p>
+            </li>
+            <li data-val="Opel">
+              <img src="images/opel_logo.png" />
+              <p>Opel</p>
+            </li>
+            <li data-val="Renault">
+              <img src="images/renault_logo.png" />
+              <p>Renault</p>
+            </li>
+            <li data-val="Volkswagen">
+              <img src="images/volkswagen_logo.png" />
+              <p>Volkswagen</p>
+            </li>
+        </ul>
+
+        <button id="imageText-clear">Clear</button>
+        <button id="imageText-show">Show</button>
+    </div>
+    <!-- Image and Text END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Image Only START -->
+    <div class="demo-wrapper demo-wrapper-imageBasic">
+        <ul id="imageBasic-demo" style="display:none">
+            <li data-val="1">
+              <img src="http://mobiscroll.com/content/img/fruit-1.png" />
+            </li>
+            <li data-val="2">
+              <img src="http://mobiscroll.com/content/img/fruit-2.png" />
+            </li>
+            <li data-val="3">
+              <img src="http://mobiscroll.com/content/img/fruit-3.png" />
+            </li>
+            <li data-val="4">
+              <img src="http://mobiscroll.com/content/img/fruit-4.png" />
+            </li>
+            <li data-val="5">
+              <img src="http://mobiscroll.com/content/img/fruit-5.png" />
+            </li>
+            <li data-val="6">
+              <img src="http://mobiscroll.com/content/img/fruit-1.png" />
+            </li>
+            <li data-val="7">
+              <img src="http://mobiscroll.com/content/img/fruit-2.png" />
+            </li>
+            <li data-val="8">
+              <img src="http://mobiscroll.com/content/img/fruit-3.png" />
+            </li>
+            <li data-val="9">
+              <img src="http://mobiscroll.com/content/img/fruit-4.png" />
+            </li>
+            <li data-val="10">
+              <img src="http://mobiscroll.com/content/img/fruit-5.png" />
+            </li>
+            <li data-val="11">
+              <img src="http://mobiscroll.com/content/img/fruit-1.png" />
+            </li>
+            <li data-val="12">
+              <img src="http://mobiscroll.com/content/img/fruit-2.png" />
+            </li>
+            <li data-val="13">
+              <img src="http://mobiscroll.com/content/img/fruit-3.png" />
+            </li>
+            <li data-val="14">
+              <img src="http://mobiscroll.com/content/img/fruit-4.png" />
+            </li>
+            <li data-val="15">
+              <img src="http://mobiscroll.com/content/img/fruit-5.png" />
+            </li>
+            <li data-val="16">
+              <img src="http://mobiscroll.com/content/img/fruit-1.png" />
+            </li>
+            <li data-val="17">
+              <img src="http://mobiscroll.com/content/img/fruit-2.png" />
+            </li>
+            <li data-val="18">
+              <img src="http://mobiscroll.com/content/img/fruit-3.png" />
+            </li>
+            <li data-val="19">
+              <img src="http://mobiscroll.com/content/img/fruit-4.png" />
+            </li>
+            <li data-val="20">
+              <img src="http://mobiscroll.com/content/img/fruit-5.png" />
+            </li>
+        </ul>
+
+        <button id="imageBasic-clear">Clear</button>
+        <button id="imageBasic-show">Show</button>
+    </div>
+    <!-- Image Only END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Unordered list START -->
+    <div class="demo-wrapper demo-wrapper-listUnordered">
+        <ul id="listUnordered-demo" style="display:none">
+            <li>Sugar</li>
+            <li>Salt</li>
+            <li>Butter</li>
+            <li>Flour</li>
+            <li>Chocolate</li>
+        </ul>
+
+        <button id="listUnordered-clear">Clear</button>
+        <button id="listUnordered-show">Show</button>
+        
+    </div>
+    <!-- Unordered list END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- With time scroller START -->
+    <div class="demo-wrapper demo-wrapper-calendarTime">
+        <input id="calendarTime-demo" placeholder="Please Select ..." />
+
+        <button id="calendarTime-clear">Clear</button>
+        <button id="calendarTime-show">Show</button>
+    </div>
+    <!-- With time scroller END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-calendarBasic">
+        
+        <input id="calendarBasic-demo" placeholder="Please Select ..." />
+
+        <button id="calendarBasic-clear">Clear</button>
+        <button id="calendarBasic-show">Show</button>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Multi day select START -->
+    <div class="demo-wrapper demo-wrapper-calendarMultiday">
+        <input id="calendarMultiday-demo" placeholder="Please Select ..." />
+
+        <button id="calendarMultiday-clear">Clear</button>
+        <button id="calendarMultiday-show">Show</button>
+    </div>
+    <!-- Multi day select END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Multiple select START -->
+    <div class="demo-wrapper demo-wrapper-selectMultiple">
+        <select name="Category" id="selectMultiple-demo" multiple>
+            <option value="1">Books</option>
+            <option value="2">Movies, Music & Games</option>
+            <option value="3" selected>Electronics & Computers</option>
+            <option value="4" selected>Home, Garden & Tools</option>
+            <option value="5">Health & Beauty</option>
+            <option value="6">Toys, Kids & Baby</option>
+            <option value="7">Clothing & Jewelry</option>
+            <option value="8">Sports & Outdoors</option>
+            <option value="9">Automotive & Industrial</option>
+        </select>
+
+        <button id="selectMultiple-clear">Clear</button>
+        <button id="selectMultiple-show">Show</button>
+    </div>
+    <!-- Multiple select END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-timespanBasic">
+        <input id="timespanBasic-demo" placeholder="Please Select ..." />
+
+        <button id="timespanBasic-clear">Clear</button>
+        <button id="timespanBasic-show">Show</button>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Day/Hour/Minute span START -->
+    <div class="demo-wrapper demo-wrapper-timespanDhm">
+        <input id="timespanDhm-demo" placeholder="Please Select ..." />
+
+        <button id="timespanDhm-clear">Clear</button>
+        <button id="timespanDhm-show">Show</button>
+    </div>
+    <!-- Day/Hour/Minute span END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Countdown START -->
+    <div class="demo-wrapper demo-wrapper-timerCountdown">
+        <input id="timerCountdown-demo" placeholder="Please Select ..." />
+    </div>
+    <!-- Countdown END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-colorHx">
+        <b>Please choose color</b><br/>
+        <div id="colorHx-demo" class="md-color">#ff0000</div>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Basic usage START -->
+    <div class="demo-wrapper demo-wrapper-rangeBasic">
+        <input id="rangeBasic-demo" placeholder="Please Select ..." />
+
+        <button id="rangeBasic-clear">Clear</button>
+        <button id="rangeBasic-show">Show</button>
+    </div>
+    <!-- Basic usage END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Time range START -->
+    <div class="demo-wrapper demo-wrapper-rangeTime">
+        <input id="rangeTime-demo" placeholder="Please Select ..." />
+
+        <button id="rangeTime-clear">Clear</button>
+        <button id="rangeTime-show">Show</button>
+    </div>
+    <!-- Time range END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Two inputs START -->
+    <div class="demo-wrapper demo-wrapper-rangeTwoinputs">
+        
+        <label for="rangeTwoinputs-startDate">Start</label><br/>
+        <input id="rangeTwoinputs-startDate" placeholder="Please Select ..." readonly/>
+        
+        <label for="rangeTwoinputs-endDate">End</label><br/>
+        <input id="rangeTwoinputs-endDate" placeholder="Please Select ..." readonly/>
+        
+        <div id="rangeTwoinputs-demo"></div>
+    </div>
+    <!-- Two inputs END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Create, remove, update START -->
+    <div class="demo-wrapper demo-wrapper-listviewUpdate">
+
+        <div id="listviewUpdate-demo_note" class="md-demo-note demo-note" style="display:none;">
+            Whooa, list is empty. Tap here to refresh!
+            &nbsp;<span class="mbsc-ic mbsc-ic-loop2"></span>
+        </div>
+        
+        <ul id="listviewUpdate-demo" class="md-wo-list" style="display:none">
+            <li data-id="listviewUpdate-1">Work order #0001<div class="md-wo-status">Assigned</div></li>
+            <li data-id="listviewUpdate-2">Work order #0002<div class="md-wo-status">Assigned</div></li>
+            <li data-id="listviewUpdate-3">Work order #0003<div class="md-wo-status">Assigned</div></li>
+            <li data-id="listviewUpdate-4">Work order #0004<div class="md-wo-status">Assigned</div></li>
+            <li data-id="listviewUpdate-5">Work order #0005<div class="md-wo-status">Assigned</div></li>
+            <li data-id="listviewUpdate-6">Work order #0006<div class="md-wo-status">Assigned</div></li>
+        </ul>
+    </div>
+    <!-- Create, remove, update END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Sort handle START -->
+    <div class="demo-wrapper demo-wrapper-listviewSorthandle">
+
+        <ul id="listviewSorthandle-demo" style="display:none">
+            <li><img src="images/m1.png" /><h3>Barry Lyon</h3><p>(202) 555-0193</p></li>
+            <li><img src="images/f1.png" /><h3>Hortense Tinker</h3><p>(202) 555-0127</p></li>
+            <li><img src="images/m2.png" /><h3>Carl Hambledon</h3><p>(202) 555-0147</p></li>
+            <li><img src="images/f2.png" /><h3>Arlene Sharman</h3><p>(202) 555-0190</p></li>
+            <li><img src="images/m3.png" /><h3>Noble Blythe</h3><p>(202) 555-0176</p></li>
+            <li><img src="images/f3.png" /><h3>Angelica Geary</h3><p>(202) 555-0107</p></li>
+            <li><img src="images/m4.png" /><h3>Lowell Christophers</h3><p>(202) 555-0120</p></li>
+            <li><img src="images/f4.png" /><h3>Leilah Gregory</h3><p>(202) 555-0189</p></li>
+        </ul>
+    </div>
+    <!-- Sort handle END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Action menu START -->
+    <div class="demo-wrapper demo-wrapper-listviewActionmenu">
+        <ul id="listviewActionmenu-demo" style="display:none">
+            <li data-type="folder" data-icon="folder">Music
+               <ul>
+                   <li data-type="music" data-icon="music">Track 1</li>
+                   <li data-type="music" data-icon="music">Track 2</li>
+                   <li data-type="music" data-icon="music">Track 3</li>
+               </ul>
+            </li>
+            <li data-type="folder" data-icon="folder">Photos
+               <ul>
+                   <li data-type="picture" data-icon="image2">Image 1</li>
+                   <li data-type="picture" data-icon="image2">Image 2</li>
+                   <li data-type="picture" data-icon="image2">Image 3</li>
+               </ul>
+            </li>
+            <li data-type="folder" data-icon="folder">Videos
+               <ul>
+                   <li data-type="movie" data-icon="play">Movie 1</li>
+                   <li data-type="movie" data-icon="play">Movie 2</li>
+                   <li data-type="movie" data-icon="play">Movie 3</li>
+               </ul>
+            </li>
+            <li data-type="picture" data-icon="image2">Image 1</li>
+            <li data-type="picture" data-icon="image2">Image 2</li>
+            <li data-type="picture" data-icon="image2">Image 3</li>
+            <li data-type="picture" data-icon="image2">Image 4</li>
+            <li data-type="picture" data-icon="image2">Image 5</li>
+            <li data-type="picture" data-icon="file4">File 1</li>
+            <li data-type="picture" data-icon="file4">File 2</li>
+        </ul>
+    </div>
+    <!-- Action menu END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Custom Icons START -->
+    <div class="demo-wrapper demo-wrapper-ratingIcons">
+        <input id="ratingIcons-demo" placeholder="Please Select ..." />
+
+        <button id="ratingIcons-clear">Clear</button>
+        <button id="ratingIcons-show">Show</button>
+    </div>
+    <!-- Custom Icons END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Decimal START -->
+    <div class="demo-wrapper demo-wrapper-numberDecimal">
+        <input id="numberDecimal-demo" placeholder="Please Select ..." />
+
+        <button id="numberDecimal-clear">Clear</button>
+        <button id="numberDecimal-show">Show</button>
+    </div>
+    <!-- Decimal END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!--  Decimal START -->
+    <div class="demo-wrapper demo-wrapper-numpadDecimal">
+        <input id="numpadDecimal-demo" placeholder="Please Select ..." />
+
+        <button id="numpadDecimal-clear">Clear</button>
+        <button id="numpadDecimal-show">Show</button>
+    </div>
+    <!--  Decimal END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Currency START -->
+    <div class="demo-wrapper demo-wrapper-numpadCurrency">
+        <input id="numpadCurrency-demo" placeholder="Please Select ..." />
+
+        <button id="numpadCurrency-clear">Clear</button>
+        <button id="numpadCurrency-show">Show</button>
+    </div>
+    <!-- Currency END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Time START -->
+    <div class="demo-wrapper demo-wrapper-numpadTime">
+        <input id="numpadTime-demo" placeholder="Please Select ..." />
+
+        <button id="numpadTime-clear">Clear</button>
+        <button id="numpadTime-show">Show</button>
+    </div>
+    <!-- Time END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Masked Entry - PIN START -->
+    <div class="demo-wrapper demo-wrapper-numpadPin">
+        <input id="numpadPin-demo" placeholder="Please Select ..." />
+
+        <button id="numpadPin-clear">Clear</button>
+        <button id="numpadPin-show">Show</button>
+    </div>
+    <!-- Masked Entry - PIN END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Date with min and max START -->
+    <div class="demo-wrapper demo-wrapper-datetimeMinmax">
+        <input id="datetimeMinmax-demo" placeholder="Please Select ..." />
+
+        <button id="datetimeMinmax-clear">Clear</button>
+        <button id="datetimeMinmax-show">Show</button>
+    </div>
+    <!-- Date with min and max END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Tab menu START -->
+    <div class="demo-wrapper demo-wrapper-menustripTabs">
+        <ul id="menustripTabs-demo" style="display:none;">
+            <li data-tab="tab-downloaded" data-selected="true">Downloaded</li>
+            <li data-tab="tab-all">All</li>
+            <li data-tab="tab-external">External storage</li>
+            <li data-tab="tab-running">Running</li>
+            <li data-tab="tab-disabled">Disabled</li>
+        </ul>
+        <div id="menustripTabs-tab-downloaded" class="md-tab-h md-tab-sel">
+            <ul class="md-apps-ul" style="display:none;">
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-calendar"></span>Calendar<span class="md-app-detail"><span class="md-app-size">26.71MB</span><span class="md-app-date">19/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-camera"></span>Camera<span class="md-app-detail"><span class="md-app-size">43.11MB</span><span class="md-app-date">10/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-folder"></span>File Manager<span class="md-app-detail"><span class="md-app-size">12.66MB</span><span class="md-app-date">9/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-earth"></span>Maps<span class="md-app-detail"><span class="md-app-size">46.21MB</span><span class="md-app-date">21/10/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-newspaper"></span>News<span class="md-app-detail"><span class="md-app-size">24.00MB</span><span class="md-app-date">20/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-play"></span>Youtube<span class="md-app-detail"><span class="md-app-size">26.47MB</span><span class="md-app-date">18/10/2014</span></span></li>
+            </ul>
+        </div>
+        <div id="menustripTabs-tab-external" class="md-tab-h">
+            <ul class="md-apps-ul" style="display:none;">
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-calendar"></span>Calendar<span class="md-app-detail"><span class="md-app-size">26.71MB</span><span class="md-app-date">09/09/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-earth"></span>Maps<span class="md-app-detail"><span class="md-app-size">46.21MB</span><span class="md-app-date">19/08/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-newspaper"></span>News<span class="md-app-detail"><span class="md-app-size">24.00MB</span><span class="md-app-date">17/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-play"></span>Youtube<span class="md-app-detail"><span class="md-app-size">26.47MB</span><span class="md-app-date">16/11/2014</span></span></li>
+            </ul>
+        </div>
+        <div id="menustripTabs-tab-running" class="md-tab-h">
+            <ul class="md-apps-ul" style="display:none;">
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-clock"></span>Clock<span class="md-app-detail"><span class="md-app-size">1.52MB</span><span class="md-app-date">16/10/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-folder"></span>File Manager<span class="md-app-detail"><span class="md-app-size">12.66MB</span><span class="md-app-date">10/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-bubble"></span>Messages<span class="md-app-detail"><span class="md-app-size">25.57MB</span><span class="md-app-date">09/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-newspaper"></span>News<span class="md-app-detail"><span class="md-app-size">24.00MB</span><span class="md-app-date">08/11/2014</span></span></li>
+            </ul>
+        </div>
+        <div id="menustripTabs-tab-all" class="md-tab-h">
+            <ul class="md-apps-ul" style="display:none;">
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-globe"></span>Browser<span class="md-app-detail"><span class="md-app-size">74.68MB</span><span class="md-app-date">18/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-calendar"></span>Calendar<span class="md-app-detail"><span class="md-app-size">26.71MB</span><span class="md-app-date">17/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-camera"></span>Camera<span class="md-app-detail"><span class="md-app-size">43.11MB</span><span class="md-app-date">19/10/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-clock"></span>Clock<span class="md-app-detail"><span class="md-app-size">1.52MB</span><span class="md-app-date">10/10/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-user4"></span>Contacts<span class="md-app-detail"><span class="md-app-size">5.43MB</span><span class="md-app-date">11/08/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-copy3"></span>Docs<span class="md-app-detail"><span class="md-app-size">32.41MB</span><span class="md-app-date">19/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-folder"></span>File Manager<span class="md-app-detail"><span class="md-app-size">12.66MB</span><span class="md-app-date">18/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-image2"></span>Gallery<span class="md-app-detail"><span class="md-app-size">1.68MB</span><span class="md-app-date">17/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-earth"></span>Maps<span class="md-app-detail"><span class="md-app-size">46.21MB</span><span class="md-app-date">18/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-phone"></span>Phone<span class="md-app-detail"><span class="md-app-size">1.28MB</span><span class="md-app-date">19/11/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-foundation-mail"></span>Email<span class="md-app-detail"><span class="md-app-size">6.65MB</span><span class="md-app-date">05/07/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-bubble"></span>Messages<span class="md-app-detail"><span class="md-app-size">25.57MB</span><span class="md-app-date">06/06/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-newspaper"></span>News<span class="md-app-detail"><span class="md-app-size">24.00MB</span><span class="md-app-date">20/10/2014</span></span></li>
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-play"></span>Youtube<span class="md-app-detail"><span class="md-app-size">26.47MB</span><span class="md-app-date">18/11/2014</span></span></li>
+            </ul>
+        </div>
+        <div id="menustripTabs-tab-disabled" class="md-tab-h">
+            <ul class="md-apps-ul" style="display:none;">
+                <li><span class="md-app-ic mbsc-ic mbsc-ic-user4"></span>Contacts<span class="md-app-detail"><span class="md-app-size">26.71MB</span><span class="md-app-date">17/11/2014</span></span></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- Tab menu END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Icon and Text START -->
+    <div class="demo-wrapper demo-wrapper-imageIcons">
+        <ul id="imageIcons-demo" style="display:none">
+            <li data-val="Share" data-icon="share"><p>Share</p></li>
+            <li data-val="Bookmark" data-icon="star"><p>Bookmark</p></li>
+            <li data-val="Flag" data-icon="flag"><p>Flag</p></li>
+            <li data-val="Tag" data-icon="tag"><p>Tag</p></li>
+            <li data-val="Download" data-icon="download"><p>Download</p></li>
+            <li data-val="Delete" data-icon="remove"><p>Delete</p></li>
+        </ul>
+
+        <button id="imageIcons-clear">Clear</button>
+        <button id="imageIcons-show">Show</button>
+    </div>
+    <!-- Icon and Text END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Step START -->
+    <div class="demo-wrapper demo-wrapper-numberStep">
+        <input id="numberStep-demo" placeholder="Please Select ..." />
+
+        <button id="numberStep-clear">Clear</button>
+        <button id="numberStep-show">Show</button>
+    </div>
+    <!-- Step END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Dialog START -->
+    <div class="demo-wrapper demo-wrapper-widgetDialog">
+        <div id="widgetDialog-demo" style="display: none;">
+             <div class="md-dialog">
+                <h3 class="md-text-center">Hi Molly</h3>
+                <p class="md-text-center">How are you feeling today?</p>
+            </div>
+        </div>
+
+        <button id="widgetDialog-show">How are you feeling?</button>
+    </div>
+    <!-- Dialog END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Alert message START -->
+    <div class="demo-wrapper demo-wrapper-widgetMessage">
+        <div id="widgetMessage-demo" style="display: none;">
+            <div class="md-body">
+                <h3>Use Google's location service?</h3>
+                <p>Let Google help apps determine location. This meas sending anonymus location data to Google, even when no apps are running.</p>
+            </div>
+        </div>
+
+        <button id="widgetMessage-show">Use Location Services?</button>
+    </div>
+    <!-- Alert message END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Custom Units START -->
+    <div class="demo-wrapper demo-wrapper-scrollerCustomunits">
+        <input id="scrollerCustomunits-demo" placeholder="Please Select ..." />
+
+        <button id="scrollerCustomunits-clear">Clear</button>
+        <button id="scrollerCustomunits-show">Show</button>
+    </div>
+    <!-- Custom Units END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Text Fields START -->
+    <div class="demo-wrapper demo-wrapper-formsTextfields">
+        <div id="formsTextfields-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Single-line text</div>
+        
+            <div>
+                <label for="formsTextfields-name">Label</label>
+                <input id="formsTextfields-name" type="text" placeholder="Text field label" />
+            </div>
+        
+            <label>
+                Password
+                <input type="password" placeholder="Text field with icon" data-icon="lock2" />
+            </label>
+            
+            <label>
+                Password Toggle
+                <input type="password" placeholder="Text field with icon" data-icon="lock2" data-password-toggle="true" />
+            </label>
+        
+            <label>
+                <input type="text" placeholder="Text field with right icon" data-icon="pencil" data-icon-align="right" />
+            </label>
+            
+            <label>
+                <input type="text" placeholder="Text field disabled" disabled/>
+            </label>
+        
+            <label class="mbsc-err">
+                <input type="text" placeholder="Text field with error style"  />
+            </label>
+            
+            <label class="mbsc-err">
+                <input type="text" placeholder="Text field with error style and message"  />
+                <span class="mbsc-err-msg">Error message!</span>
+            </label>
+            
+            <div class="mbsc-divider">Multi-line text</div>
+             
+            <label>
+                Label
+                <textarea></textarea>
+            </label>
+        
+            <label>
+                <textarea data-icon="pencil" data-icon-align="right"></textarea>
+            </label>
+        
+            <label>
+                Label
+                <textarea data-icon="bubble" data-icon-align="left"></textarea>
+            </label>
+        
+            <label>
+                <textarea placeholder="disabled" disabled></textarea>
+            </label>
+            
+            <label class="mbsc-err">
+                <textarea></textarea>
+                <span class="mbsc-err-msg">Error message!</span>
+            </label>
+        </div>
+        
+    </div>
+    <!-- Text Fields END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Select START -->
+    <div class="demo-wrapper demo-wrapper-formsSelect">
+        <div id="formsSelect-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Select</div>
+        
+            <label>
+                Label
+                <select class="md-select">
+                    <option>Select</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </label>
+            <label>
+                <select class="md-select" data-icon="plus" data-icon-align="right">
+                    <option>Select with icon</option>
+                    <option value="opel">Opel</option>
+                    <option value="renault">Renault</option>
+                    <option value="Citroen">Citroen</option>
+                    <option value="Lotus">Lotus</option>
+                </select>
+            </label>
+            <label>
+                <select class="md-select" data-icon="plus" data-icon-align="left">
+                    <option>Select with right icon</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                </select>
+            </label>
+            <label class="mbsc-err">
+                <select class="md-select">
+                    <option>Select error</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Suzuki">Suzuki</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                </select>
+            </label>
+            <label>
+                <select disabled>
+                    <option>Select disabled</option>
+                    <option value="Bentley">Bentley</option>
+                    <option value="Morgan">Morgan</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Dodge">Dodge</option>
+                </select>
+            </label>
+        </div>
+        
+    </div>
+    <!-- Select END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Checkbox START -->
+    <div class="demo-wrapper demo-wrapper-formsCheckbox">
+        <div id="formsCheckbox-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Checkbox</div>
+        
+            <label>
+                <input type="checkbox" checked>
+                Option 1
+                <span class="mbsc-desc">Checked checkbox</span>
+            </label>
+            <label>
+                <input type="checkbox">
+                Option 2
+                <span class="mbsc-desc">Empty checkbox</span>
+            </label>
+            <label>
+                <input type="checkbox" disabled> 
+                Option 3
+                <span class="mbsc-desc">Disabled checkbox</span>
+            </label>
+            <label>
+                <input type="checkbox" checked disabled>
+                Option 4
+                <span class="mbsc-desc">Disabled and checked checkbox</span>
+            </label>
+        </div>
+        
+    </div>
+    <!-- Checkbox END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Switch START -->
+    <div class="demo-wrapper demo-wrapper-formsSwitch">
+        <div id="formsSwitch-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Switch</div>
+        
+            <label>
+                <input data-role="switch" type="checkbox"> Switch Off
+                <span class="mbsc-desc">This is description for Switch</span>
+            </label>
+        
+            <label>
+                <input data-role="switch" type="checkbox" checked> Switch On
+                <span class="mbsc-desc">This is description for Switch 2</span>
+            </label>
+            <label>
+                <input data-role="switch" type="checkbox" disabled> Disabled Switch Off
+            </label>
+            <label>
+                <input data-role="switch" type="checkbox" disabled checked> Disabled Switch On
+            </label>
+        </div>
+        
+    </div>
+    <!-- Switch END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Radio buttons START -->
+    <div class="demo-wrapper demo-wrapper-formsRadiobtn">
+        <div id="formsRadiobtn-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Radio buttons</div>
+        
+            <label>
+                <input type="radio" name="group" checked> Radio Option 1
+                <span class="mbsc-desc">This is description for radio 1</span>
+            </label>
+            <label>
+                <input type="radio" name="group"> Radio Option 2
+                <span class="mbsc-desc">This is description for radio 2</span>
+            </label>
+            <label>
+                <input type="radio" name="group"> Radio Option 3
+            </label>
+            <label>
+                <input type="radio" name="group" disabled> Disabled
+            </label>
+        </div>
+        
+    </div>
+    <!-- Radio buttons END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Buttons START -->
+    <div class="demo-wrapper demo-wrapper-formsButtons">
+        <div id="formsButtons-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Buttons</div>
+        
+            <div class="mbsc-btn-group">
+                <button>Button</button>
+                <button disabled>Disabled</button>
+            </div>
+        
+            <div class="mbsc-padding">
+                <button class="mbsc-btn-block">Full width button</button>
+                <button class="mbsc-btn-block" disabled>Disabled full width</button>
+            </div>
+        
+        <div class="mbsc-divider">Icons</div>
+        
+            <div class="mbsc-btn-group">
+                <button data-icon="tag"></button>
+                <button data-icon="heart"></button>
+                <button data-icon="flag" disabled></button>
+            </div>
+            <div class="mbsc-btn-group">
+                <button data-icon="tag">Tag</button>
+                <button data-icon="heart">Favorite</button>
+                <button data-icon="flag" disabled>Flag</button>
+            </div>
+            
+            <div class="mbsc-divider">Flat Buttons</div>
+            <div class="mbsc-btn-group">
+                <button class="mbsc-btn-flat">Flat</button>
+                <button class="mbsc-btn-flat" data-icon="arrow-left5">Flat & Icon</button>
+                <button class="mbsc-btn-flat" data-icon="arrow-left5"></button>
+                <button class="mbsc-btn-flat" data-icon="key2" disabled></button>
+                <button class="mbsc-btn-flat" disabled>Flat disabled</button>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Buttons END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Typography START -->
+    <div class="demo-wrapper demo-wrapper-formsTypography">
+        <div id="formsTypography-demo" style="font-family: inherit;" mbsc-enhance>	
+            <div class="mbsc-padding">
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <h4>Heading 4</h4>
+                <h5>Heading 5</h5>
+                <h6>Heading 6</h6>
+                <p class="mbsc-bold"> Bold paragraph with a <a href="#">link</a> inside.</p>
+                <p class="mbsc-medium"> Medium paragraph with a <a href="#">link</a> inside.</p>
+                <p class="mbsc-thin"> Thin paragraph with a <a href="#">link</a> inside.</p>
+                <p class="mbsc-italic"> Italic paragraph with a <a href="#">link</a> inside.</p>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Typography END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Slider START -->
+    <div class="demo-wrapper demo-wrapper-formsSlider">
+        <div id="formsSlider-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Sound settings</div>
+            <label>
+                <input type="range" value="30" data-icon='{ "left": "volume-mute2", "right": "volume-high" }' />
+            </label>
+            <label>
+                <input type="range" value="50" data-icon="alarm2" disabled />
+            </label>
+            <label>
+                Weight
+                <input type="range" value="130" min="80" max="300" data-val="left" data-template="{value} lbs" data-highlight="false" />
+            </label>
+            <label>
+                Price
+                <input type="range" value="100" min="0" max="500" step="25" data-tooltip="true" data-step-labels="[0, 100, 200, 300, 400, 500]">
+                <input type="range" value="400" min="0" max="500" step="25" />
+            </label>
+            <label>
+                Steps
+                <input type="range" value="50" min="0" max="100" step="25" data-step-labels="[0, 25, 50, 75, 100]">
+            </label>
+            <label>
+                Multiple
+                <input type="range" value="100" min="0" max="3000" data-tooltip="true" data-step-labels="[0, 500, 1000, 1500, 2000, 2500, 3000]">
+                <input type="range" value="500" min="0" max="3000" />
+                <input type="range" value="2000" min="0" max="3000" />
+                <input type="range" value="2800" min="0" max="3000" />
+            </label>
+        </div>
+        
+    </div>
+    <!-- Slider END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Stepper START -->
+    <div class="demo-wrapper demo-wrapper-formsStepper">
+        <div id="formsStepper-demo" style="display:none" mbsc-enhance>
+            <div class="mbsc-divider">Passengers</div>
+            <div>
+                <label for="formsStepper-md-adults">Adults</label>
+                <span class="mbsc-desc">From 14 years</span>
+                <input id="formsStepper-md-adults" type="number" data-role="stepper" min="1" value="1" max="15" />
+            </div>
+        
+            <div>
+                <label for="formsStepper-md-children">Children</label>
+                <span class="mbsc-desc">2-14 years</span>
+                <input id="formsStepper-md-children" type="number" data-role="stepper" max="15" data-val="left" />
+            </div>
+        
+            <div>
+                <label for="formsStepper-md-infant">Infant</label>
+                <span class="mbsc-desc">0-2 years</span>
+                <input id="formsStepper-md-infant" type="number" data-role="stepper" data-val="left"  max="10" />
+            </div>
+                <div class="mbsc-divider">Luggage</div>
+            <label>
+                Allow overweight luggage
+                <input class="md-allow" type="checkbox" />
+            </label>
+        
+            <div>
+                <label for="formsStepper-md-luggage">Weight</label>
+                <span class="mbsc-desc">(kg)</span>
+                <input id="formsStepper-md-luggage" type="number" class="md-luggage" data-role="stepper" data-val="left" min="30" max="80" step="5" value="30" disabled />
+            </div>
+            
+            <div class="mbsc-divider">Stepper with Numpad</div>
+            
+            <div>
+                <label for="formsStepper-md-luggage">Consumption</label>
+                <div class="mbsc-desc">(mpg)</div>
+                <input id="formsStepper-md-consumption" class="md-consumption" type="number" data-role="stepper" data-val="left" min="5" max="120" step=".5" value="30" readonly />
+                <div class="md-numpad"></div>
+            </div>
+        
+        </div>
+        
+    </div>
+    <!-- Stepper END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Progress START -->
+    <div class="demo-wrapper demo-wrapper-formsProgress">
+        <div id="formsProgress-demo" style="display:none" mbsc-enhance>
+            
+            <div class="mbsc-divider">Downloading file</div>
+            <label>
+                <progress id="formsProgress-download" value="0" max="100" data-icon='{ "left": "cloud-download" }' data-val="right"></progress>
+            </label>
+            
+            <div class="mbsc-btn-group">
+                <button class="mbsc-btn md-restart">Restart download</button>
+            </div>
+            
+            <label>
+                <progress id="formsProgress-progress" value="0" max="100" data-step-labels="[0, 25, 50, 75, 100]"></progress>
+            </label>
+            
+            <div class="mbsc-btn-group">
+                <button class="mbsc-btn md-update">Update progress</button>
+            </div>
+        	
+            <div class="mbsc-divider">Cloud upload</div>
+            <label class="md-upload">
+                <progress  value="0" id="formsProgress-uploadProg" max="100" data-step-labels="[0, 33, 66, 100]" data-icon='{ "left": "cloud-upload" }'></progress>
+            </label>
+            
+            <div class="mbsc-btn-group">
+                <button class="mbsc-btn md-restart-up">Restart upload</button>
+            </div>
+            
+            <div class="mbsc-divider">Checkout process</div>
+            <label class="md-demo">
+                <progress id="formsProgress-cartProg" value="0" max="100" data-step-labels="[0, 33, 66, 100]"></progress>
+            </label>
+        
+            <div class="mbsc-btn-group">
+                <button class="mbsc-btn md-next-step">Next step</button>
+            </div></div>
+    </div>
+    <!-- Progress END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- Segmented START -->
+    <div class="demo-wrapper demo-wrapper-formsSegmented">
+        <div id="formsSegmented-demo" style="display:none" mbsc-enhance>
+        <div class="mbsc-divider">Single select</div>
+            <label>
+                Day
+                <input type="radio" data-role="segmented" name="range">
+            </label>
+            <label>
+                Week
+                <input type="radio" data-role="segmented" name="range" checked>
+            </label>
+            <label>
+                Month
+                <input type="radio" data-role="segmented" name="range">
+            </label>
+            <label>
+                Year
+                <input type="radio" data-role="segmented" name="range" checked>
+            </label>
+
+            <div class="mbsc-divider">Multiple select</div>
+            
+            <label>
+                S
+                <input type="checkbox" data-role="segmented" name="week" disabled>
+            </label>
+            <label>
+                M
+                <input type="checkbox" data-role="segmented" name="week" checked>
+            </label>
+            <label>
+                T
+                <input type="checkbox" data-role="segmented" name="week" >
+            </label>
+            <label>
+                W
+                <input type="checkbox" data-role="segmented" name="week" >
+            </label>
+            <label>
+                T
+                <input type="checkbox" data-role="segmented" name="week" checked>
+            </label>
+            <label>
+                F
+                <input type="checkbox" data-role="segmented" name="week" >
+            </label>
+            <label>
+                S
+                <input type="checkbox" data-role="segmented" name="week" disabled>
+            </label>
+            
+            <div class="mbsc-divider">Text and Icon</div>
+            
+            <label>
+                Featured
+                <input type="radio" data-role="segmented" data-icon="material-star" name="app" checked>
+            </label>
+            <label>
+                Explore
+                <input type="radio" data-role="segmented" data-icon="material-explore" name="app">
+            </label>
+            <label>
+                Updates
+                <input type="radio" data-role="segmented" data-icon="material-system-update" name="app">
+            </label>
+            
+            <div class="mbsc-divider">Icon</div>
+            
+            <label>
+                <input type="radio" data-role="segmented" data-icon="fa-mail-reply" name="settings">
+            </label>
+            <label>
+                <input type="radio" data-role="segmented" data-icon="fa-retweet" name="settings">
+            </label>
+            <label>
+                <input type="radio" data-role="segmented" data-icon="star3" name="settings" checked>
+            </label>
+            <label>
+                <input type="radio" data-role="segmented" data-icon="cogs" name="settings">
+            </label>
+        
+            <div class="mbsc-divider">Disabled</div>
+            
+            <label>
+                Idividual
+                <input type="radio" data-role="segmented" name="org" disabled checked>
+            </label>
+            <label>
+                Team
+                <input type="radio" data-role="segmented" name="org" disabled>
+            </label>
+            <label>
+                Company
+                <input type="radio" data-role="segmented" name="org" disabled>
+            </label>
+        
+        </div>
+        
+    </div>
+    <!-- Segmented END -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+</body>
+
+</html>

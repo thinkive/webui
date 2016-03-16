@@ -1,0 +1,132 @@
+.home-device {
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	position:absolute;
+	top:0px;
+	left:0px;
+	//box-shadow: 0px 0px 5px #000;
+}
+.home-device .arrow-left {
+	background:url(../images/arrows.png) no-repeat left top;
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+}
+.home-device .arrow-right {
+	background:url(../images/arrows.png) no-repeat left bottom;
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+}
+.swiper-main {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.sm-shadow {
+	position: absolute;
+	bottom: -15px;
+	width: 606px;
+	height: 38px;
+	left: 17px;
+	background: url(../images/shadow.png);
+}
+.swiper1, .swiper1 .swiper-slide{
+	width: 100%;
+	height: 100%;
+}
+.pagination1 {
+	position:relative;
+	z-index:999;
+	text-align: center;
+	margin-top: -20px;
+}
+.content-slide {
+	background: #fff;
+	padding: 20px;
+	border-radius: 5px;
+}
+.cs-1, .cs-2 {
+	float: left;
+	width:270px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.cs-1 {
+	margin-right: 20px;
+	background: #333;
+	color: #fff;
+}
+.cs-2 {
+	background: #ad2e4c;
+	color: #fff;
+}
+/* Pagination */
+.pagination1 .swiper-pagination-switch {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #999;
+	box-shadow: 0px 1px 2px #555 inset;
+	margin: 0 3px;
+	cursor: pointer;
+}
+.pagination1 .swiper-active-switch {
+	background: #fff;2f9933
+}
+
+.sw-title {
+	padding: 5px 20px;
+	font-size: 41px;
+	margin: 50px 0 20px;
+	font-family: 'Lato', sans-serif;
+	line-height: 50px;
+	color: #222;
+	font-weight: 300;
+	border-bottom: 1px solid #555;
+}
+.sw-content {
+	background: #fff;
+	border-radius: 5px;
+}
+.demo-title {
+	margin-bottom: 5px;
+	text-align: center;
+	font-size: 31px;
+	font-family: "Lato", Arial, Helvetica;
+	font-weight: 300;
+	line-height: 35px;
+	margin: 50px 0 20px;
+}
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }

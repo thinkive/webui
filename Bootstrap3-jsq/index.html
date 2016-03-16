@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基于Bootstrap 3的精美jQuery计算器插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="css/SimpleCalculadorajQuery.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>基于Bootstrap 3的精美jQuery计算器插件 <span>A Customizable Calculator App With jQuery and Bootstrap</span></h1>
+		</header>
+		<div class="container">
+      		<div class="row">
+      			<div class=" col-md-4 ">
+		            <div id="idCalculadora"></div>
+				</div>
+				<div class="col-md-6" >
+		          <div id="micalc"></div>
+		        </div>
+      		</div>
+      	</div>
+
+	</div>
+	
+	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script src="js/SimpleCalculadorajQuery.js"></script>
+	<script type="text/javascript">
+		$("#idCalculadora").Calculadora();
+         $("#micalc").Calculadora({'EtiquetaBorrar':'Clear',TituloHTML:'<a class="btn-block btn3d btn btn-success" href="http://www.htmleaf.com/" target="_blank">htmleaf.com</a>'});
+	</script>
+</body>
+</html>

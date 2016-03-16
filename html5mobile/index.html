@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
+<title>minio - mobile web app template</title>
+<link rel="stylesheet" href="css/framework7.css">
+<link rel="stylesheet" href="style.css">
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+</head>
+<body id="mobile_wrap">
+
+
+ 
+
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-cover">
+              <nav class="list-nav">
+                <ul>
+                  <li class="home-icon"><a href="index.html" class="close-panel">Home</a></li>
+                  <li class="about-icon"><a href="about.html" class="close-panel">About</a></li>
+                  <li class="features-icon"><a href="features.html" class="close-panel">Features</a></li>
+                  <li class="photos-icon"><a href="photos.html" class="close-panel">Gallery</a></li>
+                  <li class="video-icon"><a href="videos.html" class="close-panel">Videos</a></li>
+                  <li class="blog-icon"><a href="blog.html" class="close-panel">Blog</a></li>
+                  <li class="contact-icon"><a href="contact.html" class="close-panel">Contact</a></li>
+                </ul>
+              </nav>  
+    </div>
+
+    <div class="panel panel-right panel-cover">
+      <div class="user_login_info">
+        <h2>Hi, username</h2>
+        <p>Edit your account settings</p>
+              <nav class="list-nav-small">
+                <ul>
+                  <li class="about-icon"><a href="about.html" class="close-panel">Profile</a></li>
+                  <li class="tools-icon"><a href="features.html" class="close-panel">Settings</a></li>
+                  <li class="lock-icon"><a href="features.html" class="close-panel">Account</a></li>
+                  <li class="envelope-icon"><a href="features.html" class="close-panel">Messages</a></li>
+                  <li class="heart-icon"><a href="features.html" class="close-panel">Favorites</a></li>
+                  <li class="download-icon"><a href="features.html" class="close-panel">Downloads</a></li>
+                  <li class="logout-icon"><a href="index.html" class="close-panel">Logout</a></li>
+                </ul>
+              </nav>
+      </div>
+    </div>
+
+    <div class="views">
+
+      <div class="view view-main">
+
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left sliding"><div class="logo_title">minio</div></div>
+            <div class="right menu_open_icon"><a href="#" data-panel="left" class="link icon-only open-panel"></a></div>
+          </div>
+        </div>
+
+        <div class="pages navbar-through toolbar-through">
+
+          <div data-page="index" class="page homepage">
+            <div class="page-content">
+
+                  <!-- Slider -->
+                  <div class="swiper-container swiper-init" data-effect="coverflow" data-pagination=".swiper-pagination">
+                    <div class="swiper-wrapper">
+                    
+                      <div class="swiper-slide">
+                          <span>THE <br /> CREATIVE</span>
+                          <span class="subtitle">mobile app solution</span>
+                          <a href="about.html" class="swiper_read_more">swipe to see more</a>                      </div>
+                      <div class="swiper-slide">
+                          <span>WITH <br />BEAUTIFUL</span>
+                          <span class="subtitle">multipurpose designs</span>
+                          <a href="features.html" class="swiper_read_more">see all features</a>                      </div>
+                      <div class="swiper-slide">
+                          <span>READY <br /> FOR APPS</span>
+                          <span class="subtitle">web and native</span>
+                          <a href="#" class="swiper_read_more open-panel">start navigating</a>                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+              <div class="toolbar-inner">
+              <ul class="toolbar_icons icons_4row">
+              <li><a href="#" data-popup=".popup-login" class="open-popup"><img src="images/icons/white/user.png" alt="" title="" /></a></li>
+              <li><a href="features.html"><img src="images/icons/white/settings.png" alt="" title="" /></a></li>
+              <li><a href="photos.html"><img src="images/icons/white/photos.png" alt="" title="" /></a></li>
+              <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="images/icons/white/heart.png" alt="" title="" /></a></li>
+              </ul>
+              </div>  
+        </div>
+        
+
+      </div>
+    </div>
+    
+    <!-- About Popup -->
+    <div class="popup popup-login">
+    <div class="content-block">
+      <h4>Login</h4>
+            <div class="loginform">
+            <form id="LoginForm" method="post">
+            <label>Username:</label>
+            <input type="text" name="Username" value="" class="form_input required" />
+            <label>Password:</label>
+            <input type="password" name="Password" value="" class="form_input required" />
+            <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
+            </form>
+            </div>
+      <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
+    </div>
+    </div>
+    <!-- Services Popup -->
+    <div class="popup popup-social">
+    <div class="content-block">
+      <h4>Social Share</h4>
+      <p>Share icons solution that allows you share and increase your social popularity.</p>
+      <ul class="social_share">
+      <li><a href="#"><img src="images/icons/white/twitter.png" alt="" title="" /></a></li>
+      <li><a href="#"><img src="images/icons/white/facebook.png" alt="" title="" /></a></li>
+      <li><a href="#"><img src="images/icons/white/googleplus.png" alt="" title="" /></a></li>
+      <li><a href="#"><img src="images/icons/white/dribbble.png" alt="" title="" /></a></li>
+      <li><a href="#"><img src="images/icons/white/linkedin.png" alt="" title="" /></a></li>
+      <li><a href="#"><img src="images/icons/white/pinterest.png" alt="" title="" /></a></li>
+      </ul>
+      <div class="close_popup_button"><a href="#" class="close-popup">Close</a></div>
+    </div>
+    </div>
+    
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/email.js"></script>
+  </body>
+</html>

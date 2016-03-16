@@ -1,0 +1,258 @@
+@import "compass/css3";
+
+$bgc:#24303a;
+$chart-bg:#1e2730;
+$chart-txt:#4a667a;
+$green:#48c15e;
+$red:#ef6670;
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@font-face{
+  font-family:Lato;
+  src:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/176026/ProximaNova-Regular.otf);
+  font-weight:300;
+}
+body,html{
+  font-family:Lato;
+}
+h1{
+  font-size:28px;
+  line-height:40px;
+  margin-top:20px;
+  a{
+    text-decoration:none;
+    color:$green;
+  }
+  p{
+    font-size:22px;
+  }
+}
+#grid{
+  @include transform(translate(1px,0px));
+}
+/* GRAPH - 1 */
+#graph-1{
+  stroke:url(#gradient-1);
+  stroke-width:1.5;
+  fill:transparent;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  @include animation (lineani 1.3s linear forwards);
+}
+#graph-2{
+  stroke:url(#gradient-2);
+  stroke-width:1.5;
+  fill:transparent;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  @include animation (lineani 1.3s linear forwards);
+}
+#poly-1{
+  fill:url(#gradient-3);
+}
+#poly-2{
+  fill:url(#gradient-4);
+}
+@include keyframes (lineani){
+  to{
+    stroke-dashoffset:0;
+  }
+}
+.underlay{
+  stroke-width:5;
+  fill:transparent;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke:$bgc;
+}
+#circle-graph-1{
+  stroke:url(#gradient-1);
+  stroke-width:5;
+  fill:transparent;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.chart-circle{
+  @include transform(rotate(90deg));
+}
+#circle-graph-2{
+  stroke:url(#gradient-2);
+  stroke-width:5;
+  fill:transparent;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+body{
+  background-color: $bgc;
+  color:white;
+  text-align:center;
+}
+.charts-container{
+  padding:20px;
+  width:100%;
+  max-width:1024px;
+  display:inline-block;
+  @include box-sizing(border-box);
+}
+.chart{
+  color:$chart-txt;
+  text-align:left;
+  position: relative;
+  height:auto;
+  background-color: $chart-bg;
+  display:inline-block;
+  float:left;
+  position:relative;
+  @include box-sizing(border-box);
+  margin:10px;
+  padding:15px 20px 65px 20px;
+  &.circle{
+    padding:15px 20px 40px 20px;
+  }
+  @media screen and (max-width:700px){
+    width:calc(100% - 20px);
+  }
+  @media screen and (min-width:700px){
+    width:calc(50% - 20px);
+  }
+}
+.title{
+  font-size: 22px;
+  margin-bottom:12px;
+}
+.chart-circle{
+  display:inline-block;
+  position: relative;
+}
+.chart-svg{
+  position:relative;
+}
+.circle-percentage{
+  position:absolute;
+  color:white;
+  font-size: 48px;
+  left:50%;
+  top:50%;
+  @include transform(translate(-50%,-50%));
+  @media screen and (max-width:480px){
+    font-size:32px;
+  }
+}
+.align-center{
+  text-align:center;
+}
+.chart-line{
+  width:80%;
+}
+.valueX{
+  font-size:14px;
+}
+.chart-values{
+  text-align:right;
+  font-size:18px;
+  position:absolute;
+  right:0;
+  bottom:0;
+  padding:15px;
+}
+.h-value{
+  @include transition(700ms ease-in-out);
+  opacity:0;
+  &.visible{
+    opacity:1;
+  }
+}
+.percentage-value{
+  @include transition(700ms ease-in-out);
+  color:$green;
+  margin-top:2px;
+  opacity:0;
+  &.negative{
+    color:$red;
+  }
+  &.visible{
+    opacity:1;
+  }
+}
+.total-gain{
+  color:white;
+  font-size:48px;
+}
+.triangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 28px 0 0 28px;
+  position:absolute;
+  left:0;
+  bottom:0;
+  &.red{
+    border-color: transparent transparent transparent $red;
+  }
+  &.green{
+    border-color: transparent transparent transparent $green;
+  }
+}
+
+
+
+.horizontal,
+.vertical{
+  stroke-width:0.1;
+  stroke:$chart-txt;
+}
+
+/* CLEARFIX HELPER */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+/*IRRELEVANT CSS*/
+
+.followlinks{
+  position:fixed;
+  right:35px;
+  bottom:15px;
+  display:table;
+  a {
+    display:table-cell;
+    vertical-align:middle;
+    padding-left:10px;
+    color:white;
+    svg path{
+      fill:white;
+    }
+  }
+}
+.heartIt{
+  margin-top:50px;
+  margin-bottom:80px;
+  p{
+    font-size:24px;
+    line-height:40px;
+  }
+  img{
+    width:64px;
+    height:auto;
+    opacity:0.7;
+    @include filter(invert(100%));
+  }
+}
+.original{
+  color:$red;
+  font-size: 14px;
+}

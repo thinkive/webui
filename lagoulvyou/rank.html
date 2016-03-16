@@ -1,0 +1,1053 @@
+<!DOCTYPE HTML>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="GB2312">
+
+<meta name="keywords" content="" />
+
+<meta name="description" content="" />
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>
+
+<link href="m.css" rel="stylesheet" type="text/css" />
+
+<title>拉拉勾旅游线路/自助游旅游网触屏版手机wap旅游网站模</title>
+
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+
+<script src="js/manhuatoTop.1.0.js" type="text/javascript"></script>
+
+<script src="js/common.js" type="text/javascript"></script>
+
+<style>
+
+.renqi_1 {
+
+	margin:0 auto;
+
+	width:100%;
+
+	height:31px;
+
+	border-bottom:1px solid #D9DAD8;
+
+	margin-top:5px;
+
+	font-size:12px;
+
+}
+
+.zhoubian {
+
+	margin:0 auto;
+
+	width:95%;
+
+	height:auto;
+
+}
+
+.zhoubian_1 {
+
+	float:left;
+
+	width:100%;
+
+	height:auto;
+
+	margin-top:5px;
+
+	line-height:20px;
+
+	padding-bottom:5px;
+
+	border-bottom:1px dashed #DEDEDE;
+
+}
+
+.zhoubian_1_2 {
+
+	float:left;
+
+	width:80px;
+
+	height:auto;
+
+}
+
+.zhoubian_1_3 {
+
+	float:left;
+
+	width:70%;
+
+	height:auto;
+
+}
+
+.zhoubian_1_4 {
+
+	float:right;
+
+	width:100%;
+
+	height:12px;
+
+	line-height:12px;
+
+	text-align:right;
+
+	color:#dd5105
+
+}
+
+.zhoubian_2 {
+
+	float:left;
+
+	width:100%;
+
+	height:auto;
+
+	margin-top:5px;
+
+	line-height:20px;
+
+	padding-bottom:5px;
+
+	border-bottom:1px dashed #DEDEDE;
+
+}
+
+.zhoubian_2_1 {
+
+	float:left;
+
+	width:25px;
+
+	height:19px;
+
+	text-align:left;
+
+}
+
+.zhoubian_2_2 {
+
+	float:left;
+
+	width:90%;
+
+	height:auto;
+
+}
+
+.zhoubian_2_3 {
+
+	float:right;
+
+	width:100%;
+
+	height:12px;
+
+	line-height:12px;
+
+	text-align:right;
+
+	color:#dd5105;
+
+}
+
+.zhoubian_3 {
+
+	float:left;
+
+	width:100%;
+
+	height:18px;
+
+	margin-top:3px;
+
+	line-height:18px;
+
+	color:#505153;
+
+	text-align:right;
+
+}
+
+#top10 {
+
+	float:left;
+
+	width:100%;
+
+	height:30px;
+
+	margin:0px;
+
+	padding:0px;
+
+}
+
+#top10 li {
+
+	float:left;
+
+	list-style-type:none;
+
+	width:25%;
+
+	height:30px;
+
+	line-height:30px;
+
+	text-align:center;
+
+	cursor:pointer;
+
+}
+
+#top10 li span{
+
+	display:block;
+
+	border-top:1px solid #DFE0DF;
+
+	border-left:1px solid #DFE0DF;
+
+}
+
+
+
+.yesselected {
+
+	color:#000000;
+
+	background-color:#D8F5C7;
+
+}
+
+.noselected {
+
+	color:#999A9B;
+
+	background-color:#FFFFFF;
+
+}
+
+</style>
+
+<script>
+
+function showtop10(x){
+
+	var el = document.getElementById("top10").getElementsByTagName("li");
+
+	for(i=0;i<el.length;i++){
+
+		el[i].className = "noselected";
+
+		document.getElementById("topten"+i).style.display="none";
+
+	}
+
+	el[x].className="yesselected";
+
+	document.getElementById("topten"+x).style.display="block";
+
+}
+
+</script>
+
+</head>
+
+
+
+<body>
+
+<div id="frame">
+
+	<div id="top">
+
+		<a id="logo" href="index.html"><img src="images/home.png" align="top"></a>
+
+		<a id="title">排行榜</a>
+
+		<!--a id="search" href="search.jsp"><img src="images/search.png" align="top"></a-->
+
+		<span id="list"><a href="javascript:window.history.back();"><img src="images/goback.png" align="top"></a>
+
+		
+
+		   <a href="login.html"><img src="images/userlogin.png" align="top"></a>
+
+		
+
+		</span>
+
+	</div>
+
+	<div id="con">
+
+		<div class="search_div">
+
+			<div class="renqi_1">
+
+				<ul id="top10">
+
+					<li class="yesselected" onClick="showtop10('0')"><span>周边游</span></li>
+
+					<li class="noselected" onClick="showtop10('1')"><span>国内游</span></li>
+
+					<li class="noselected" onClick="showtop10('2')"><span>出境游</span></li>
+
+					<li class="noselected" onClick="showtop10('3')"><span style="border-right:1px solid #DFE0DF;">自助游</span></li>
+
+				</ul>
+
+			</div>
+
+			
+
+			<div class="zhoubian">
+
+				<div id="topten0">
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m1.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期特惠】<三清山避暑含餐3日游>三清山、养生河漂流、朱子文化园清凉避暑之旅（赠送2早2晚餐）</a></div>
+
+						<div class="zhoubian_2_3">￥395</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m2.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期特惠】<桐庐休闲3日>余杭白龙潭、桐庐芦茨湾、深奥古镇农家休闲3日 7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥295</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m3.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【五星旅游】<黄山五星3日>魅力黄山  屯溪老街  颜公河皮筏漂流  尊贵尊享</a></div>
+
+						<div class="zhoubian_2_3">￥285</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m4.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期特惠】<江西龙虎山3日>泡泡水上乐园、三溪大峡谷、龙虎山问道休闲快乐3日游 8月</a></div>
+
+						<div class="zhoubian_2_3">￥448</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m5.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期旅游】<大溪闯滩激情五星尊享2日游>桐庐大溪闯滩漂流、琴溪香谷、深澳狄蒲古村</a></div>
+
+						<div class="zhoubian_2_3">￥465</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m6.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期自驾】<安吉自驾游2日>将军关探险漂流+大竹海景区+嘉洲丽晶酒店</a></div>
+
+						<div class="zhoubian_2_3">￥439</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m7.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期旅游】<象山海滨2日游>象山松兰山海滨、余姚丹山赤水、赤水溪激情漂流</a></div>
+
+						<div class="zhoubian_2_3">￥195</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m8.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期旅游】<象山特价2日>象山海滨品海鲜、石浦渔港、海上石林花岙岛二日特价之旅</a></div>
+
+						<div class="zhoubian_2_3">￥265</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m9.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【自驾推荐】<天目山避暑自驾游2日>东天目山景区 圆缘楼或龙王湾农家标间</a></div>
+
+						<div class="zhoubian_2_3">￥268</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1" ><img src="images/m10.gif" style="vertical-align:bottom;" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2" ><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【五星旅游】<湖州3日>芜湖阳光半岛大酒店小巴厘岛沙滩包吃包住品质游</a></div>
+
+						<div class="zhoubian_2_3">￥430</div>
+
+					</div>
+
+				
+
+				</div>
+
+				<div id="topten1" style="display:none;">
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m1.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【9月特价】<云南双飞六日> 昆明、大理、丽江 特色高档酒店  9月</a></div>
+
+						<div class="zhoubian_2_3">￥580</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m2.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【中秋旅游】<云南双飞六日>昆明 大理 丽江 温泉高级酒店 8-9月</a></div>
+
+						<div class="zhoubian_2_3">￥580</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m3.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【9月特价】<广西三星纯玩双飞四日> 爸妈之旅·桂林 漓江 阳朔 象鼻山 9月</a></div>
+
+						<div class="zhoubian_2_3">￥1880</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m4.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;"><张家界双飞纯玩五日>张家界、天子山、杨家界、袁家界、凤凰双飞休闲五日（纯玩特价,赠游溪布街）</a></div>
+
+						<div class="zhoubian_2_3">￥1880</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m5.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;"><广西三星纯玩双飞四日> 桂林 漓江 阳朔 象鼻山 9月</a></div>
+
+						<div class="zhoubian_2_3">￥2090</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m6.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【特价线路】<成都双飞6日游>成都、九寨沟、黄龙、双飞六日游</a></div>
+
+						<div class="zhoubian_2_3">￥3050</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m7.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;"><长白山双飞四日游> 望天鹅 中朝边境 三晚入住万达智选假日度假酒店 9月</a></div>
+
+						<div class="zhoubian_2_3">￥2875</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m8.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期特惠】<山东4日> 青岛、威海、烟台、蓬莱【五星温泉酒店-特价】</a></div>
+
+						<div class="zhoubian_2_3">￥570</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m9.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期旅游】 <张家界双卧5日>  张家界.天子山.杨家界.宝峰湖、溪布街双卧5日</a></div>
+
+						<div class="zhoubian_2_3">￥1528</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m10.gif" style="vertical-align:bottom;"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期旅游】<海南5日游>阳光漫步-海口往返 8月</a></div>
+
+						<div class="zhoubian_2_3">￥1890</div>
+
+					</div>
+
+				
+
+			  </div>
+
+				<div id="topten2" style="display:none;">
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m1.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【出境特惠】【中秋特惠】<泰国6天>直飞 曼谷芭提雅 含经典景点 纯泰6天5晚 （含税）9月</a></div>
+
+						<div class="zhoubian_2_3">￥2430</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m2.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【9月特价】<法瑞意德11天> 法瑞意+德国+斯特拉斯堡+ The Mall名品购物村11天 9月1日 9月3日</a></div>
+
+						<div class="zhoubian_2_3">￥12400</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m3.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;"><首尔五日超值游> 江原道 雪岳山 送12月济州游 9月</a></div>
+
+						<div class="zhoubian_2_3">￥2099</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m4.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【中秋特惠】<长滩双飞5日游>长滩岛自由5天4晚自由行 9月</a></div>
+
+						<div class="zhoubian_2_3">￥2660</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m5.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【暑期特惠】<首尔-清州5日>首尔包机 首尔清州PANG秀 汉江游船 乐天世界 温泉超值五日游*四花7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥2099</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m6.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;"><首尔四日超值游> 江原道 雪岳山 送12月济州游 9月</a></div>
+
+						<div class="zhoubian_2_3">￥1999</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m7.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【9月特价】<台湾6日游>（3钻）—免费升级1晚五花酒店  9月</a></div>
+
+						<div class="zhoubian_2_3">￥3830</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m8.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR043003.html" style="color:#444545;text-decoration:none;">【9月特价】<巴厘岛4晚6天>全程五星酒店 9月</a></div>
+
+						<div class="zhoubian_2_3">￥4999</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m9.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042777.html" style="color:#444545;text-decoration:none;">【暑期旅游】<普吉5日游> 普吉4晚5日</a></div>
+
+						<div class="zhoubian_2_3">￥4850</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m10.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042774.html" style="color:#444545;text-decoration:none;">【9月特价】<台湾双飞8日游>台湾环岛8日全景文化游 垦丁入住1晚全程含餐 （含税）9月</a></div>
+
+						<div class="zhoubian_2_3">￥4099</div>
+
+					</div>
+
+				
+
+				</div>
+
+				<div id="topten3" style="display:none;">
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m1.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR041983.html" style="color:#444545;text-decoration:none;">【暑期自驾】<安吉自驾游2日>将军关探险漂流+大竹海景区+嘉洲丽晶酒店</a></div>
+
+						<div class="zhoubian_2_3">￥439</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m2.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042577.html" style="color:#444545;text-decoration:none;">【自驾推荐】<天目山避暑自驾游2日>东天目山景区 圆缘楼或龙王湾农家标间</a></div>
+
+						<div class="zhoubian_2_3">￥268</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m3.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042937.html" style="color:#444545;text-decoration:none;">【暑期旅游】<安吉自驾2日游>  安吉大竹海+安吉藏龙百瀑</a></div>
+
+						<div class="zhoubian_2_3">￥359</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m4.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042033.html" style="color:#444545;text-decoration:none;">【暑期自驾】<苏州自驾2日>  苏州福朋喜来登+苏州乐园水上世界+双早 7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥899</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m5.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042608.html" style="color:#444545;text-decoration:none;">【自驾推荐】<无锡自驾游2日>樱花温泉+华美达广场酒店</a></div>
+
+						<div class="zhoubian_2_3">￥608</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m6.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042517.html" style="color:#444545;text-decoration:none;">【自驾推荐】<南京二日> 南京水魔方+句容裕坤开元7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥769</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m7.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042058.html" style="color:#444545;text-decoration:none;">【暑期自驾】<象山自驾2日>松兰山海滨+海洋酒店 7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥399</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m8.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR041980.html" style="color:#444545;text-decoration:none;">【暑期自驾】<千岛湖自驾游2日>王子谷漂流+瑞利.淡竹度假酒店 7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥599</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m9.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042059.html" style="color:#444545;text-decoration:none;">【暑期自驾】<象山自驾2日>松兰山海滨+松兰山海景 7-8月</a></div>
+
+						<div class="zhoubian_2_3">￥399</div>
+
+					</div>
+
+				
+
+					<div class="zhoubian_2">
+
+						<div class="zhoubian_2_1"><img src="images/m10.gif" align="absbottom" alt="拉拉勾旅游网"/></div>
+
+						<div class="zhoubian_2_2"><a href="lvyoutuan_TR042586.html" style="color:#444545;text-decoration:none;">【自驾推荐】<遂昌自驾游2日>汤沐园水世界+泡汤沐园温泉+汤沐园温泉酒店</a></div>
+
+						<div class="zhoubian_2_3">￥508</div>
+
+					</div>
+
+				
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+
+
+
+
+
+<div id="footer"><a href="index.html">拉拉勾旅游网 lavago.com</a>&nbsp;&nbsp;微信号：iLaLaGo</div>
+
+<div id="menu" style="position:fixed;bottom:0px;width:100%;height:44px;line-height:44px;z-index:999;background:url(images/menubg.png) repeat-x;">
+
+	<ul style="margin:0 auto;list-style-type:none;width:100%;max-width:500px;height:100%;">
+
+		
+
+		<li><img class="img_front" src="images/front.png"><div class="menu_li"><img src="images/coin.png" width=10>&nbsp;小二推荐</div><img class="line" src="images/line.png" width=1>
+
+		
+
+		<span style="background-size:100%;">
+
+			<img src="images/navbg4.png" width=100%>
+
+			<div style="position:absolute;top:0px;left:0px;">
+
+		
+
+			<a href="onsale_0.html">每日推荐</a>
+
+		
+
+			<a href="onsale_2.html">清仓秒杀</a>
+
+		
+
+			<a href="onsale.html">限时特卖</a>
+
+		
+
+			<a href="hot.html">当季热点</a>
+
+		
+
+			</div>
+
+		</span>
+
+		
+
+		</li>
+
+		
+
+		<li><img class="img_front" src="images/front.png"><div class="menu_li"><img src="images/coin.png" width=10>&nbsp;旅游超市</div><img class="line" src="images/line.png" width=1>
+
+		
+
+		<span style="background-size:100%;">
+
+			<img src="images/navbg4.png" width=100%>
+
+			<div style="position:absolute;top:0px;left:0px;">
+
+		
+
+			<a href="list.html">目的地</a>
+
+		
+
+			<a href="rank.html">排行榜</a>
+
+		
+
+			<a href="search.html">旅游搜索</a>
+
+		
+
+			<a href="javascript:beginTalk()">在线咨询</a>
+
+		
+
+			</div>
+
+		</span>
+
+		
+
+		</li>
+
+		
+
+		<li><img class="img_front" src="images/front.png"><div class="menu_li"><img src="images/coin.png" width=10>&nbsp;订单处理</div>
+
+		
+
+		<span style="background-size:100%;">
+
+			<img src="images/navbg5.png" width=100%>
+
+			<div style="position:absolute;top:0px;left:0px;">
+
+		
+
+			<a href="#">我的订单</a>
+
+		
+
+			<a href="#">会员资料</a>
+
+		
+
+			<a href="#">关联微信</a>
+
+		
+
+			<a href="#">联系我们</a>
+
+		
+
+			<a href="#">进入主站</a>
+
+		
+
+			</div>
+
+		</span>
+
+		
+
+		</li>
+
+		
+
+	</ul>
+
+</div>
+
+<div class="footer_front" style="position:fixed;width:100%;height:100%;top:0px;left:0px;z-index:888;display:none;"><img src="images/front.png" width="100%" height="100%"></div>
+
+<style>
+
+#menu ul li{float:left;width:33.3%;height:100%;text-align:center;position:relative;font-size:14px;}
+
+#menu ul li .line{position:absolute;top:0px;right:0px;z-index:30;}
+
+#menu ul li .menu_li{position:absolute;top:0px;left:0px;z-index:20;width:100%;height:100%;color:#454545;background:url(images/menubg.png) repeat-x;}
+
+#menu ul li .img_front{position:absolute;top:0px;left:0px;z-index:30;width:100%;height:100%;}
+
+#menu ul li .img_front img{width:100%;height:100%;}
+
+#menu ul li span{position:absolute;bottom:-300px;left:50%;width:104px;margin-left:-52px;height:auto;text-align:center;z-index:10;}
+
+#menu ul li span a{float:left;width:100%;height:43px;line-height:43px;color:#454545;text-decoration:none;}
+
+</style>
+
+<script>
+
+function beginTalk() {
+
+	var t = window.location.toString();
+
+	var newT = t.replace(new RegExp("&", "gm"), "<and>"); 
+
+	window.open("italk/index_m.jsp@fs_AccessAddress=" + newT, "talk");
+
+}
+
+window.onload = function(){
+
+	$('#menu ul li').each(function(j){
+
+		$('#menu ul li').eq(j).removeClass("on");
+
+		$('#menu ul li span').eq(j).animate({bottom:-$('#menu ul li span').eq(j).height()},100);
+
+	});
+
+}
+
+$('#menu ul li').each(function(i){
+
+	$(this).click(function(){
+
+		if($(this).attr("class")!="on"){
+
+			$('#menu ul .on span').animate({bottom:-$('#menu ul .on span').height()},200);
+
+			$('#menu ul .on').removeClass("on");
+
+			$(this).addClass("on");
+
+			$('#menu ul li span').eq(i).animate({bottom:35},200);
+
+			$('.footer_front').show();
+
+		}else{
+
+			$('#menu ul li span').eq(i).animate({bottom:-$('#menu ul li span').eq(i).height()},200);
+
+			$(this).removeClass("on");
+
+			$('.footer_front').hide();
+
+		}
+
+	});
+
+});
+
+$('.footer_front').click(function(){
+
+	$('#menu ul .on span').animate({bottom:-$('#menu ul .on span').height()},200);
+
+	$('#menu ul .on').removeClass("on");
+
+	$(this).hide();
+
+});
+
+</script>
+
+</div>
+
+</body>
+
+</html>
