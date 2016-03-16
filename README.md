@@ -15,5 +15,5 @@
 12. **H5曲线图效果**http://www.wecloud.net.cn/lightApp/html5-stats-animation/index.html
 13. **仿微信支付**http://www.wecloud.net.cn/lightApp/wechatPay/index.html
 
-PC浏览器访问
+#常用PC插件(浏览器访问)
 1. **Bootstrap3计算器**http://www.wecloud.net.cn/lightApp/Bootstrap3-jsq/index.html
