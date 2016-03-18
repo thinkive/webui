@@ -17,5 +17,4 @@
 
 #常用PC插件(浏览器访问)
 1. **Bootstrap3计算器**http://www.wecloud.net.cn/lightApp/Bootstrap3-jsq/index.html
-2. **Bootstrap3弹出提示插件**http://www.wecloud.net.cn/jqueryPlugins/toastr-master/demo.html
-
+2. **Bootstrap3弹出提示插件**http://www.wecloud.net.cn/jqueryPlugins/toastr-master/demo.html (官方链接https://github.com/CodeSeven/toastr)
