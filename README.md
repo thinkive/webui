@@ -19,3 +19,5 @@
 1. **Bootstrap3计算器**http://www.wecloud.net.cn/lightApp/Bootstrap3-jsq/index.html
 2. **Bootstrap3弹出提示插件**http://www.wecloud.net.cn/jqueryPlugins/toastr-master/demo.html (官方链接https://github.com/CodeSeven/toastr)
 3. **jquery图片剪切处理**http://www.wecloud.net.cn/jqueryPlugins/jqueryCut/index.html
+4. **jquery键盘打字游戏**www.wecloud.net.cn/jqueryPlugins/keyGame/index.html
+
