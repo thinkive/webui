@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery键盘打字练习特效</title>
+</head>
+
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+	var acKey='';//当前按键键码
+	var numPosit=320;//字母显示面板位置
+	var allNum=$("#allNum").val();//字母总个数
+	var acNum=0;//当前字母个数
+	var errNum=0;//错误个数
+	var uTime=0;//用时
+	var state=false;//当前状态(运行/结束)
+	//待选字母合集
+	var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+	
+	
+	//点击开始
+	$("#state").click(fun)
+	
+	//键盘事件 
+	$(document).keydown(function (event){
+		//空格键开始
+		if(event.keyCode==32){fun();$("#allNum").blur()}
+		
+		if(state){
+			$(".keyCont a").css('background-color','#fff').css('color','#8DE2F0');//初始化按键背景色
+			acKey=String.fromCharCode(event.keyCode);//获取键码,当前按键
+			var acId="#k"+acKey;//当前按键ID
+			if($(".showCont ul li").eq(acNum).text()==acKey){
+				$(acId).css('background-color','#65e2a9').css('color','#fff');//改变当前按键样式_正确按键时
+				numPosit-=80; //待选集合位置移动
+				$(".showCont ul").animate({left:numPosit},100);//待选集合位置移动动画
+				acNum+=1;//当前个数加1
+				$("#allNum").val(allNum-acNum)//剩余个数
+			}else{
+				$(acId).css('background-color','#ff5d5d').css('color','#fff');//改变当前按键样式_错误按键时
+				if((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=65&&event.keyCode<=90))
+				 errNum+=1;//错误个数+1,只选范围之内
+			}
+			
+			//最后一个结束
+			if(acNum==allNum){fun()}
+		}
+	});
+	
+	//功能操作
+	function fun(){
+		//开始结束切换、变换按钮显示文字
+		if(!state){
+			$("#state").text('停止(space)');
+			state=true;
+		}else{
+			$("#state").text('开始(space)')
+			state=false;
+		}
+		
+		if(state){
+			start()
+		}else{
+			over()
+		}
+	}
+	
+
+	
+	//功能函数_开始
+	function start(){
+		/*初始化显示状态*/
+		$("#allNum").val(allNum);
+		$("#uTime").text("时间:0");
+		$("#result").text("结果:0");
+		$(".showCont ul").text('');
+		errNum=0;
+		acNum=0;
+		numPosit=320;
+		$(".showCont ul").css('left',numPosit);
+		/****************************************/
+		
+		//随机产生待选集合
+		for(var i=0;i<=allNum;i++){
+			$(".showCont ul").css('width',81*allNum);
+			$(".showCont ul").append("<li>"+chars[GetRandomNum(0,35)]+"</li>");
+		}
+		//开始计时
+		timer=setInterval(function(){uTime+=0.1;$("#uTime").text("时间:"+uTime.toFixed(1)+"秒")},100);
+	}
+	//功能函数_结束
+	function over(){
+		//结束计时
+		clearInterval(timer);
+		//计算速率
+		var resultNum=acNum/uTime;
+		
+		if(acNum!=allNum){//完成全部字母
+			//resultNum.toFixed(2)保留两位小数
+			$("#result").text("未完成:每秒"+resultNum.toFixed(2)+"个"+"错误"+errNum+"个");
+		}else{//未完成全部字母
+			$("#result").text("结果:每秒"+resultNum.toFixed(2)+"个"+"错误"+errNum+"个");
+		}
+		uTime=0;//计时器清零
+	}
+	
+	
+	
+	//计时器
+	var timer=setInterval(function(){uTime+=0.1;$("#uTime").text("时间:"+uTime.toFixed(1)+"秒")},100);
+	clearInterval(timer);//暂停计时器
+})
+
+/*产生范围内随机数*/
+function GetRandomNum(Min,Max)
+{   
+var Range = Max - Min;   
+var Random = Math.random();   
+return(Min + Math.round(Random * Range));   
+}
+</script>
+
+<style>
+*{padding:0;margin:0; list-style:none;}
+body{background-color:#8DE2F0;padding-top:150px;}
+input{border:none; outline:none;}
+.showCont{
+	width:800px;
+	height:80px;
+	border:1px solid #fff;
+	margin:20px auto;
+	position:relative;
+	overflow:hidden;
+}
+.showCont ul{
+	height:80px;
+	top:0;
+	left:320px;
+	position:absolute;
+}
+.showCont ul li{
+	float:left;
+	width:80px;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	color:#fff;
+	font-size:30px;
+	font-family: "Arial";
+}
+.line{
+	height:80px;
+	width:80px;
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+	position:absolute;
+	top:0;
+	left:320px;
+}
+.funCont{
+	width:800px;
+	height:30px;
+	margin:0 auto;
+	color:#fff;
+	font:16px "微软雅黑";
+	line-height:30px;
+}
+.funCont a,.funCont label{
+	float:right;
+	margin-right:10px;
+}
+.funCont input[type='text']{
+	width:50px;
+	line-height:30px;
+	height:30px;
+	border-radius:3px;
+	color:#666;
+	font-size:20px;
+	text-align:center;
+	border-bottom:2px solid #6eaeb9;
+}
+.funCont a:hover{
+	color:#6eaeb9;
+}
+.keyCont{
+	width:750px;
+	height:282px;
+	margin:20px auto;
+	border:1px solid #fff;
+	padding-left:50px;
+	padding-top:68px;
+}
+.keyCont p{
+	display:block;
+	width:100%;
+	clear:both;
+}
+.keyCont p a{
+	display:block;
+	float:left;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	background-color:#fff;
+	color:#8DE2F0;
+	font-size:20px;
+	margin:3px 2px;
+	border-radius:4px;
+	font-weight:bold;
+	border-bottom:2px solid #6eaeb9;
+}
+.pdl2{padding-left:20px;}
+.pdl4{padding-left:40px;}
+.pdl6{padding-left:60px;}
+</style>
+<body>
+<div class="showCont">
+	<ul>
+    </ul>
+    <div class="line"><!--竖线--></div>
+</div>
+<div class="funCont">
+	<p><span id="uTime">时间:0</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="result">结果:0</span><a id="state">开始(space)</a><label>个数&nbsp;&nbsp;<input disabled="true" type="text" id="allNum" value="100"></label></p>
+</div>
+<div class="keyCont">
+	<p>
+    	<a id="k1">1</a><a id="k2">2</a><a id="k3">3</a><a id="k4">4</a><a id="k5">5</a>
+        <a id="k6">6</a><a id="k7">7</a><a id="k8">8</a><a id="k9">9</a><a id="k0">0</a>
+        <a>-</a><a>=</a>
+    </p>
+    <p class="pdl2">
+    	<a id="kQ">Q</a>
+        <a id="kW">W</a>
+        <a id="kE">E</a>
+        <a id="kR">R</a>
+        <a id="kT">T</a>
+        <a id="kY">Y</a>
+        <a id="kU">U</a>
+        <a id="kI">I</a>
+        <a id="kO">O</a>
+        <a id="kP">P</a>
+        <a>[</a>
+        <a>]</a>
+    </p>
+    <p class="pdl4">
+    	<a id="kA">A</a>
+        <a id="kS">S</a>
+        <a id="kD">D</a>
+        <a id="kF">F</a>
+        <a id="kG">G</a>
+        <a id="kH">H</a>
+        <a id="kJ">J</a>
+        <a id="kK">K</a>
+        <a id="kL">L</a>
+        <a>;</a>
+        <a>'</a>
+        <a>|</a>
+    </p>
+    <p class="pdl6">
+    	<a id="kZ">Z</a>
+        <a id="kX">X</a>
+        <a id="kC">C</a>
+        <a id="kV">V</a>
+        <a id="kB">B</a>
+        <a id="kN">N</a>
+        <a id="kM">M</a>
+        <a><</a>
+        <a>></a>
+        <a>?</a>
+        <a>\</a>
+    </p>
+</div>
+
+</body>
+</html>
