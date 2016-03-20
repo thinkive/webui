@@ -20,4 +20,4 @@
 2. **Bootstrap3弹出提示插件**http://www.wecloud.net.cn/jqueryPlugins/toastr-master/demo.html (官方链接https://github.com/CodeSeven/toastr)
 3. **jquery图片剪切处理**http://www.wecloud.net.cn/jqueryPlugins/jqueryCut/index.html
 4. **jquery键盘打字游戏**www.wecloud.net.cn/jqueryPlugins/keyGame/index.html
-
+5. **jquery键盘打字游戏2**www.wecloud.net.cn/jqueryPlugins/html5%E7%9B%B2%E6%89%93%E9%AB%98%E6%89%8B%E6%89%93%E9%A3%9E%E5%AD%97/index.html
