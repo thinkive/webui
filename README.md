@@ -21,3 +21,4 @@
 3. **jquery图片剪切处理**http://www.wecloud.net.cn/jqueryPlugins/jqueryCut/index.html
 4. **jquery键盘打字游戏**www.wecloud.net.cn/jqueryPlugins/keyGame/index.html
 5. **jquery键盘打字游戏**http://www.wecloud.net.cn/jqueryPlugins/html5KeyGame/index.html
+6. **Bootstrap3,jquery拖拽上传组件**http://www.wecloud.net.cn/jqueryPlugins/jquery-Upload/index.html
