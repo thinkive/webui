@@ -25,3 +25,4 @@
 5. **jquery键盘打字游戏**http://www.wecloud.net.cn/jqueryPlugins/html5KeyGame/index.html
 6. **Bootstrap3,jquery拖拽上传组件**http://www.wecloud.net.cn/jqueryPlugins/jquery-Upload/index.html
 7. **Bootstrap3头像富文本展示**http://www.wecloud.net.cn/jqueryPlugins/jQuery-emoji/index.html
+8. **jquery 3D 女神墙**http://www.wecloud.net.cn/jqueryPlugins/jquery-3d-girl-image-player/index.htm
