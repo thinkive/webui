@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+img{
+	border: 0 none;
+	vertical-align: middle;
+}
+body{
+	background-color: #F0F0F0;
+	font-family: "微软雅黑","arial,sans-serif";
+	font-size: 14px;
+	color: #333;
+}
+.viewport{
+	width: 100%;
+	min-width: 320px;
+	margin: 0 auto;
+}
+.wrap{
+	background-color: #FFF;
+	overflow: hidden;
+}
+.pos-abs{
+	position: absolute;
+}
+.pos-rel{
+	position: relative;
+}
+.pull-left{
+	float: left!important;
+}
+.dis-block{
+	display: block;
+}
+.text-center{
+	text-align: center;
+}
+.w-50{
+	width: 50%;
+}
+.w-100{
+	width: 100%;
+}
+.img-responsive{
+	display: inline-block;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+.ft-9{
+	font-size: .95rem;
+}
+.ft-10{
+	font-size: 1rem;
+}
+.ft-12{
+	font-size: 1.2rem;
+}
+.ft-white{
+	color: #FFF;
+}
+.mrgt-10{
+	margin-top: 10px;
+}
+.mrgl-5{
+	margin-left: 5px;
+}
+
+/*环状图标信息*/
+.flow_chartPie{
+	width: 100%;
+	margin: 6% auto 0;
+	position: relative;
+}
+.flow_chartShade{
+	width: 100%;
+	position: absolute;
+	top: 40%;
+	left: 0;
+}
+.flow_btn{
+	width: 100px;
+	color: #FFF;
+	background-color: #F77F5B;
+	display: inline-block;
+	padding: 4px 8px;
+	margin-bottom: 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 50px;
+}
+/*基本信息*/
+.info{
+	width: 100%;
+	float: left;
+	margin: 7% 0;
+	text-align: left;
+}
+.info .dot{
+	width: 6px;
+	height: 6px;
+	background-color: #FFF;
+	float: left;
+	border-radius: 50%;
+	margin: 12px 5px 0 0;
+}
+
+/*自定义响应式*/
+/*窄屏手机*/
+@media only screen and (max-width:480px) {
+	.flow_btn{
+		width: 80px;
+		padding: 2px 6px;
+	}
+	.info .dot{
+		margin-top: 10px;
+	}
+	.ft-9{
+	font-size: .85rem;
+	}
+	.ft-10{
+		font-size: .95rem;
+	}
+	.ft-12{
+		font-size: 1rem;
+	}
+}
