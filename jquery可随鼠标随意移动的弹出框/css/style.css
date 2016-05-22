@@ -1,0 +1,29 @@
+*{padding:0;margin:0;}
+div,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,img,ol,ul,li,table,th,td,p,span,a{border:0;}
+img,input{border:none;vertical-align:middle;}
+body{font-family:'Microsoft YaHei',"å¾®è½¯é›…é»‘", YaHei,Arial,Helvetica,sans-serif;font-size:14px;background:#fff;color:#444;}
+body{overflow:scroll;}
+ul,ol{list-style-type:none;}
+th,td,input{font-size:14px;}
+h3{font-size:14px;}
+button{border:none;cursor:pointer;font-size:14px;background-color:transparent;}
+select{border-width:1px;_zoom:1;border-style:solid;padding-top:2px;font-size:12px;}
+input, button {font-family: "å¾®è½¯é›…é»‘";outline: 0;border: 0; color:#666;}
+.clear{clear:both;font-size:1px;height:0;visibility:hidden;line-height:0;}
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+a{text-decoration:none;}
+a:link,a:visited{text-decoration:none;color:#444;}
+a:hover,a:active{text-decoration:underline;color:#3db1fa;}
+
+
+.box{width:100%; overflow:hidden;}
+.box-3 dl{ display:table; position:absolute; bottom:5px; right:5px; width:300px; background:#fff;box-shadow: 0 0 7px rgba(0,0,0,.3); border-radius:3px; }
+.box-3 dl dd{height: 40px;line-height: 40px; color:#fff; font-size: 16px;position: relative;padding-left: 10px; background:#06b5ff; border-radius:3px 3px 0 0;}
+.box-3 dl dd b{ display: block; height:40px; width:40px; position:absolute; top:0; right:0; cursor:pointer;}
+.box-3 dl dd b.up{ background:url(../images/up.png) center center no-repeat;}
+.box-3 dl dd b.down{ background:url(../images/down.png) center center no-repeat;}
+.box-3 dl ul{padding:0 20px; height:165px;}
+.box-3 dl ul li{ height:40px; line-height:40px; border-top: 1px dashed #EDEDED;}
+.box-3 dl ul li span{ display:inline-block; width:70px; text-align:right;}
+.box-3 dl ul li i{ font-style:normal; margin-left:10px;}
