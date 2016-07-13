@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏允许全屏模式浏览-->
+    <meta name="apple-touch-fullscreen" content="yes"><!-- 开启对web app程序的支持  -->
+    <meta content="telephone=no,email=no" name="format-detection"><!-- iPhone会自动把你这个文字加链接样式、并且点击这个数字还会自动拨号！telephone=no就忽略页面中的数字识别为电话号码 ,email=no 忽略识别邮箱 -->
+    <!--base css-->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--base css end-->
+    <!--base js-->
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <script>
+        window.scrollTo(0, 0);
+    </script>
+    <!--<meta content="yes" name="apple-mobile-web-app-capable"> end-->
+    <script src="js/reset.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/TouchSlide.js"></script>
+    <!--base js end-->
+    <script src="js/add.js"></script>
+
+</head>
+
+<body>
+<!--wapper-->
+<div class="wapper">
+    <!--slide-->
+    <div id="focus" class="focus">
+        <div class="hd">
+            <ul>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul id="Gallery" class="gallery">
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="1">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="2">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="3">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="4">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        /*banner滚动图片*/
+        TouchSlide({
+            slideCell : "#focus",
+            titCell : ".hd ul", // 开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell : ".bd ul",
+            effect : "leftLoop",
+            autoPlay : true, // 自动播放
+            autoPage : true, // 自动分页
+            delayTime: 200, // 毫秒；切换效果持续时间（执行一次效果用多少毫秒）
+            interTime: 2500, // 毫秒；自动运行间隔（隔多少毫秒后执行下一个效果）
+            switchLoad : "_src" // 切换加载，真实图片路径为"_src"
+        });
+    </script>
+    <!--slide end-->
+    <!--index-list end-->
+    <!--container-fluid-->
+    <div class="container-fluid clearFloat b-b-dcdcdc bag-fff">
+        <ul class="etc-nav">
+            <a href="phone1.html">
+                <li>
+                    <i><img src="images/icon1.png" alt="" width="20%" /></i>
+                    <p class="text-center">手机充值</p>
+                </li>
+            </a>
+            <a href="tuiguan.html">
+                <li>
+                    <i><img src="images/icon2.png" alt="" width="25%" style="margin-top: 0.1rem;" /></i>
+                    <p class="text-center">代理赚钱</p>
+                </li>
+            </a>
+            <a>
+                <li class="ontc">
+                    <i><img src="images/icon3.png" alt="" width="25%" style="margin-top: 0.3rem;"/></i>
+                    <p class="text-center">兑换中心</p>
+                </li>
+            </a>
+            <a href="huodongzhongxin.html">
+                <li>
+                    <i><img src="images/icon4.png" alt="" width="25%"/></i>
+                    <p class="text-center">活动中心</p>
+
+                </li>
+            </a>
+            <a>
+                <li class="ontc">
+                    <i><img src="images/icon5.png" alt="" width="20%" style="margin-top: 0.2rem;"/></i>
+                    <p class="text-center">发福袋</p>
+
+                </li>
+            </a>
+            <a>
+                <li>
+                    <i><img src="images/icon6.png" alt="" width="20%" style="margin-top: 0.8rem;"/></i>
+
+                </li>
+            </a>
+        </ul>
+    </div>
+    <!--container-fluid end-->
+    <!--期待-->
+    <div class="page-tztck relative">
+        <div class="page-tc relative">
+            <span class="closea"><img src="images/colsea.png" alt=""/></span>
+            <img src="images/tcimg.png" alt="" width="90%"/>
+        </div>
+    </div>
+
+    <!--期待 end-->
+    <!--index-kuai-->
+    <div class="index-kuai m-t-20 m-b-20" style="min-height: 4rem;">
+        <a tel="12345">
+            <div class="gli relative f30 p-t-30 p-b-30 b-b-dcdcdc  p-l-30 p-r-30">
+                <i class="icon iconfont text-ed5565">&#xe605;</i> 客服热线  400-8888-888
+                <span class="gspan"><img src="images/gjia.png" alt=""/></span>
+            </div>
+        </a>
+
+        <div class="gli relative f30 p-t-30 p-b-30 b-b-dcdcdc  p-l-30 p-r-30 pacl">
+            <i class="icon iconfont text-5d9cec">&#xe614;</i> 扫二维码
+            <span class="gspan"><img src="images/gjia.png" alt=""/></span>
+        </div>
+    </div>
+    <!--index-kuai end-->
+    <!--二维码-->
+    <div class="page-wb relative">
+        <div class="page-wba relative">
+            <span class="closea"><img src="images/colsea.png" alt=""/></span>
+            <img src="images/weima.png" alt="" width="90%"/>
+        </div>
+    </div>
+    <!--二维码 end-->
+    <div class="footer">
+        <a href="index.html">
+            <span></span>
+            首页
+        </a>
+        <a href="phone1.html" class="factiv">
+            <span></span>
+            手机充值
+        </a>
+        <a href="tuiguan.html">
+            <span></span>
+            代理赚钱
+        </a>
+        <a href="yonghu.html">
+            <span></span>
+            个人中心
+        </a>
+    </div>
+    <!--返回顶部-->
+    <!--<a href="#" id="scrollUp" style="position: fixed; z-index: 10;">-->
+        <!--<i class="icon iconfont">&#xe60c;</i>-->
+    <!--</a>-->
+    <!--返回顶部-->
+
+
+
+
+
+
+
+
+</div>
+<!--wapper end-->
+
+</body>
+</html>

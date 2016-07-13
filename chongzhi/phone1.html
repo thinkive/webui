@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏允许全屏模式浏览-->
+    <meta name="apple-touch-fullscreen" content="yes"><!-- 开启对web app程序的支持  -->
+    <meta content="telephone=no,email=no" name="format-detection"><!-- iPhone会自动把你这个文字加链接样式、并且点击这个数字还会自动拨号！telephone=no就忽略页面中的数字识别为电话号码 ,email=no 忽略识别邮箱 -->
+    <!--base css-->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--base css end-->
+    <!--base js-->
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <script>
+        window.scrollTo(0, 0);
+    </script>
+    <!--<meta content="yes" name="apple-mobile-web-app-capable"> end-->
+    <script src="js/reset.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/TouchSlide.js"></script>
+    <!--base js end-->
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/add.js"></script>
+    <!--no base js end-->
+
+
+</head>
+
+<body>
+<!--wapper-->
+<div class="wapper">
+    <div class="phone">
+        <div class="page-tab">
+            <div class="tabs">
+                <a href="#" class="active">流量充值</a>
+                <a href="#" >充值记录</a>
+            </div>
+            <div class="">
+                <div id="tabs-container" class="swiper-container bag-ebebeb">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="denglu">
+                                <div class="yijian m-t-45 f26 p-l-30 p-r-30">
+                                    <p class="text-666666" style="line-height: 0.609375rem;">目前支持全国移动、全国电信、全国联通</p>
+                                </div>
+                                <div class="dengluinput m-t-15 m-b-33 clearFloat">
+                                    <form action="" class="dengluform">
+                                        <div class="denglutit bag-fff">
+                                            <input type="number" placeholder="请输入充值的手机号码" class="tphone"/>
+                                        </div>
+                                        <div class="denglutit text-right clearFloat  m-r-30" style="border: 0;padding-bottom: 0;">
+                                            <span class="floatLeft p-l-30">北京 移动 支持2G/3G/4G</span>
+                                            <div class="floatRight" style="width: 35%;">
+                                                <input type="checkbox" class="checb floatLeft"/> <span class="floatLeft m-l-5">保存手机号码</span>
+                                            </div>
+                                            &nbsp;
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                <!--浏量选择-->
+                                <div class="phliliang p-r-30 p-l-30 m-b-50">
+                                    <div class="phtabs text-right m-t-60 m-b-30">
+                                        <a href="#" class="pactive">本地流量</a>
+                                        <a href="#" >全国流量</a>
+                                    </div>
+                                    <div id="phtabs-container" class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="phtable clearFloat">
+                                                    <ul class="clearFloat phtul">
+                                                        <li class="phtact">
+                                                            <span>10M</span><br>售价2.85元
+                                                        </li>
+                                                        <li>
+                                                            <span>30M</span><br>售价4.74元
+                                                        </li>
+                                                        <li>
+                                                            <span>70M</span><br>售价9.5元
+                                                        </li>
+                                                        <li>
+                                                            <span>150M</span><br>售价19元
+                                                        </li>
+                                                        <li>
+                                                            <span>500M</span><br>售价28.5元
+                                                        </li>
+                                                        <li>
+                                                            <span>1G</span><br>售价47.5元
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="phtable clearFloat">
+                                                    <ul class="clearFloat phtul">
+                                                        <li class="phtact">
+                                                            <span>10M</span><br>售价2.85元
+                                                        </li>
+                                                        <li>
+                                                            <span>30M</span><br>售价4.74元
+                                                        </li>
+                                                        <li>
+                                                            <span>70M</span><br>售价9.5元
+                                                        </li>
+                                                        <li>
+                                                            <span>150M</span><br>售价19元
+                                                        </li>
+                                                        <li>
+                                                            <span>500M</span><br>售价28.5元
+                                                        </li>
+                                                        <li>
+                                                            <span>1G</span><br>售价47.5元
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--浏览选择 end-->
+                                <a href="" class="denglusub denglusuba denlus">立即登录</a>
+                                <div class="yijian m-t-45 f22 p-l-30 p-r-30 bag-ebebeb">
+                                    <p class="text-666666" style="line-height: 0.609375rem;">
+                                        <strong>流量包充值温馨提示：</strong><br>
+                                        请务必输入正确的手机号码，由于输入错误导致充值不成功，不在平台承担责任范围之内<br>
+                                        支持用户：联通3G/4G用户，移动/电信2G/3G/4G用户<br>
+                                        生效时间：一般即时到账，运营商繁忙时24小时内到账<br>
+                                        有效时间：全国流量包为当月有效，月末清零。广东移动省内包为20天有效<br>
+                                        使用范围：全国流量包可全国漫游，省内包只能在省内使用
+                                    </p>
+                                </div>
+                                <div class="yijian m-t-45 f22 p-l-30 p-r-30 text-center bag-ebebeb">
+                                    <p class="text-e94820" style="line-height: 0.609375rem;">
+                                        <a href="" class="text-e94820">充值常见问题</a>&nbsp;|&nbsp;<a href="" class="text-e94820">联系客服</a>
+                                    </p>
+                                </div>
+                                <br><br><br><br>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-slide">
+                                <div class="denglu">
+                                    <div class="yijian m-t-45 f26 p-l-30 p-r-30">
+                                        <p class="text-666666" style="line-height: 0.609375rem;">查询历史充值记录</p>
+                                    </div>
+                                    <div class="dengluinput m-t-15 m-b-33 clearFloat">
+                                        <form action="" class="dengluform">
+                                            <div class="denglutit bag-fff">
+                                                <input type="number" placeholder="请输入要查询的手机号码"  class="tphone2"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <a href="" class="denglusub denglusuba ljcx">立即查询</a>
+                                <!--表格-->
+                                <div class="chtable m-t-40">
+                                    <form action="">
+                                        <div class="chtable-title">
+                                            <a href="">充值时间</a>
+                                            <a href="">流量包</a>
+                                            <a href="">价格</a>
+                                            <a href="">状态</a>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="chtable-cont">
+                                            <a href="">2016-06-08</a>
+                                            <a href="">500M</a>
+                                            <a href="">28.5元</a>
+                                            <a href="">已完成</a>
+                                        </div>
+                                        <div class="chtable-cont">
+                                            <a href="">2016-06-08</a>
+                                            <a href="">500M</a>
+                                            <a href="">28.5元</a>
+                                            <a href="">已完成</a>
+                                        </div>
+                                        <div class="chtable-cont">
+                                            <a href="">2016-06-08</a>
+                                            <a href="">500M</a>
+                                            <a href="">28.5元</a>
+                                            <a href="">已完成</a>
+                                        </div>
+                                        <div class="chtable-cont">
+                                            <a href="">2016-06-08</a>
+                                            <a href="">500M</a>
+                                            <a href="">28.5元</a>
+                                            <a href="">已完成</a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--表格 end-->
+                                <div class="yijian m-t-45 f26 p-l-30 p-r-30">
+                                    <p class="text-666666" style="line-height: 0.609375rem;">
+                                        <strong>系统说明：</strong><br>
+                                        系统默认只查询一个月内充值记录
+                                    </p>
+                                </div>
+                                <div class="yijian m-t-45 f22 p-l-30 p-r-30 text-center">
+                                    <p class="text-e94820" style="line-height: 0.609375rem;">
+                                        <a href="" class="text-e94820">充值常见问题</a>&nbsp;|&nbsp;<a href="" class="text-e94820">联系客服</a>
+                                    </p>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                    var tabsSwiper = new Swiper('#tabs-container',{
+                        speed:500,
+                        onSlideChangeStart: function(){
+                            $(".tabs .active").removeClass('active')
+                            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active')
+                        }
+                    })
+                    $(".tabs a").on('touchstart mousedown',function(e){
+                        e.preventDefault()
+                        $(".tabs .active").removeClass('active')
+                        $(this).addClass('active')
+                        tabsSwiper.slideTo( $(this).index() )
+                    })
+                    $(".tabs a").click(function(e){
+                        e.preventDefault()
+                    })
+
+                    var phtabsSwiper = new Swiper('#phtabs-container',{
+                        speed:500,
+                        onSlideChangeStart: function(){
+                            $(".phtabs .pactive").removeClass('pactive')
+                            $(".phtabs a").eq(phtabsSwiper.activeIndex).addClass('pactive')
+                        }
+                    })
+                    $(".phtabs a").on('touchstart mousedown',function(e){
+                        e.preventDefault()
+                        $(".phtabs .pactive").removeClass('pactive')
+                        $(this).addClass('pactive')
+                        phtabsSwiper.slideTo( $(this).index() )
+                    })
+                    $(".phtabs a").click(function(e){
+                        e.preventDefault()
+                    });
+
+
+                    $(".denglutit > span").css({
+                        "display": "none"
+                    });
+                    $(".phliliang").css({
+                        "display": "none"
+                    });
+                    $(".denlus").click(function() {
+                        var a = $(".tphone").val();
+                        var b = /^0?1[3|4|5|8][0-9]\d{8}$/;
+                        if (a == '') {
+                            alert("对不起，电话不能为空！");
+                            return false
+                        } else if (!b.test(a)) {
+                            alert("对不起，电话格式不正确！");
+                            return false
+                        } else {
+                            $(".denglutit > span").css({
+                                "display": "block"
+                            });
+                            $(".phliliang").css({
+                                "display": "block"
+                            });
+                            return false
+                        }
+                    });
+
+                })
+            </script>
+        </div>
+<br><br>
+    </div>
+
+    <div class="footer">
+        <a href="index.html">
+            <span></span>
+            首页
+        </a>
+        <a href="phone1.html" class="factiv">
+            <span></span>
+            手机充值
+        </a>
+        <a href="tuiguan.html">
+            <span></span>
+            代理赚钱
+        </a>
+        <a href="yonghu.html">
+            <span></span>
+            个人中心
+        </a>
+    </div>
+
+
+
+
+    <!--返回顶部-->
+    <!--<a href="#" id="scrollUp" style="position: fixed; z-index: 10;">-->
+    <!--<i class="icon iconfont">&#xe60c;</i>-->
+    <!--</a>-->
+    <!--返回顶部-->
+
+
+
+
+
+
+
+
+</div>
+<!--wapper end-->
+
+</body>
+</html>

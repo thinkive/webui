@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>活动中心</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏允许全屏模式浏览-->
+    <meta name="apple-touch-fullscreen" content="yes"><!-- 开启对web app程序的支持  -->
+    <meta content="telephone=no,email=no" name="format-detection"><!-- iPhone会自动把你这个文字加链接样式、并且点击这个数字还会自动拨号！telephone=no就忽略页面中的数字识别为电话号码 ,email=no 忽略识别邮箱 -->
+    <!--base css-->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--base css end-->
+    <!--base js-->
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <script>
+        window.scrollTo(0, 0);
+    </script>
+    <!--<meta content="yes" name="apple-mobile-web-app-capable"> end-->
+    <script src="js/reset.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/TouchSlide.js"></script>
+    <!--base js end-->
+    <script src="js/add.js"></script>
+
+</head>
+
+<body>
+<!--wapper-->
+<div class="wapper">
+    <!--slide-->
+    <div id="focus" class="focus">
+        <div class="hd">
+            <ul>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul id="Gallery" class="gallery">
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="1">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="2">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="3">
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="images/ind5.jpg" alt="4">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        /*banner滚动图片*/
+        TouchSlide({
+            slideCell : "#focus",
+            titCell : ".hd ul", // 开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell : ".bd ul",
+            effect : "leftLoop",
+            autoPlay : true, // 自动播放
+            autoPage : true, // 自动分页
+            delayTime: 200, // 毫秒；切换效果持续时间（执行一次效果用多少毫秒）
+            interTime: 2500, // 毫秒；自动运行间隔（隔多少毫秒后执行下一个效果）
+            switchLoad : "_src" // 切换加载，真实图片路径为"_src"
+        });
+    </script>
+    <!--slide end-->
+
+    <!--index-list-->
+    <!--<div class="index-list clearFloat">-->
+    <!--<div class="index-listtitle">-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont text-fc6e51">&#xe647;</i><br>手机充值-->
+    <!--</a>-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont text-f6bb42">&#xe689;</i><br>代理赚钱-->
+    <!--</a>-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont text-48cfad">&#xe654;</i><br>兑换中心-->
+    <!--</a>-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont text-4fc1e9">&#xe619;</i><br>活动中心-->
+    <!--</a>-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont text-ed5565">&#xe61c;</i><br>发福袋-->
+    <!--</a>-->
+    <!--<a href="">-->
+    <!--<i class="icon iconfont">&#xe639;</i><br>发福袋-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--index-list end-->
+    <!--hfour-->
+    <div class="hfour p-l-30 p-r-30 p-t-20 p-b-20">
+        <a href=""><img src="images/img1.png" alt=""/></a>
+        <a href=""><img src="images/img2.png" alt=""/></a>
+        <a href=""><img src="images/img3.png" alt=""/></a>
+        <a href=""><img src="images/img4.png" alt=""/></a>
+    </div>
+    <!--hfour end-->
+    <!--热闹活动-->
+    <div class="hot p-l-30 p-r-30  p-b-27 clearFloat bag-fff">
+        <h3 class="screenh3 f28"><strong>热门活动</strong></h3>
+        <div class="hot-content">
+            <ul class="clearFloat">
+                <li class="b-b-e6e6e6">
+                    <div class="hto-img">
+                        <a href="loupan-page.html">
+                            <div class="hto-img-content m-r-16">
+                                <img src="images/hotimg.jpg" alt=""/>
+                            </div>
+                        </a>
+                        <div class="hto-p">
+                            <a href="loupan-page.html">
+                                <h3 class="hto-ph3 m-b-5 f26">全国无漫游加速加量不加价</h3>
+                                <p class="hto-title clearFloat f20">发布时间：2016-06-18 </p>
+                                <p class="hto-title clearFloat  f20">新办或升档4G流量月包打折抢购啦！注意... </p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="b-b-e6e6e6">
+                    <div class="hto-img">
+                        <a href="loupan-page.html">
+                            <div class="hto-img-content m-r-16">
+                                <img src="images/hotimg.jpg" alt=""/>
+                            </div>
+                        </a>
+                        <div class="hto-p">
+                            <a href="loupan-page.html">
+                                <h3 class="hto-ph3 m-b-5 f26">全国无漫游加速加量不加价</h3>
+                                <p class="hto-title clearFloat f20">发布时间：2016-06-18 </p>
+                                <p class="hto-title clearFloat  f20">新办或升档4G流量月包打折抢购啦！注意... </p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="b-b-e6e6e6">
+                    <div class="hto-img">
+                        <div class="hto-p">
+                            <a href="loupan-page.html">
+                                <h3 class="hto-ph3 m-b-5 f26">全国无漫游加速加量不加价</h3>
+                                <p class="hto-title clearFloat f20">发布时间：2016-06-18 </p>
+                                <p class="hto-title clearFloat  f20">新办或升档4G流量月包打折抢购啦！注意... </p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+    <!--热闹活动 end-->
+
+    <!--返回顶部-->
+    <!--<a href="#" id="scrollUp" style="position: fixed; z-index: 10;">-->
+    <!--<i class="icon iconfont">&#xe60c;</i>-->
+    <!--</a>-->
+    <!--返回顶部-->
+
+
+
+
+
+
+
+
+</div>
+<!--wapper end-->
+
+</body>
+</html>
